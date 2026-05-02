@@ -1,0 +1,2371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Hearing Room — Independent Hearing Clinic, Singapore</title>
+<meta name="description" content="An independent Singapore hearing clinic offering hearing assessments, professionally fitted hearing aids, earwax removal, and tinnitus management at The Adelphi." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   THE HEARING ROOM — Premium Clinical UI
+   Brand: Deep teal #0E4F4F · Mint #7FC9C7 · Orange #E89A3C · Coral #E76A55
+   Font: Poppins
+   ========================================================= */
+:root{
+  --teal-900:#0E4F4F;
+  --teal-800:#13605F;
+  --teal-700:#1B7574;
+  --teal-500:#3A9D9B;
+  --teal-300:#7FC9C7;
+  --teal-100:#D4ECEB;
+  --teal-50:#EAF5F4;
+  --orange:#E89A3C;
+  --orange-dark:#C97F1E;
+  --coral:#E76A55;
+  --coral-dark:#CD5640;
+  --cream:#F7F4EE;
+  --cream-deep:#EFEAE0;
+  --gray-100:#F2F0EB;
+  --gray-200:#E2DED5;
+  --gray-300:#C8C4BB;
+  --gray-500:#7A746A;
+  --charcoal:#1C2424;
+  --charcoal-soft:#3A4242;
+  --white:#FFFFFF;
+  --shadow-sm:0 1px 2px rgba(14,79,79,.04), 0 2px 8px rgba(14,79,79,.04);
+  --shadow-md:0 4px 14px rgba(14,79,79,.07), 0 2px 6px rgba(14,79,79,.04);
+  --shadow-lg:0 16px 40px rgba(14,79,79,.10), 0 6px 14px rgba(14,79,79,.05);
+  --radius-sm:8px;
+  --radius-md:14px;
+  --radius-lg:22px;
+  --radius-xl:32px;
+  --container:1200px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  font-family:'Poppins',-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--charcoal);
+  background:var(--white);
+  line-height:1.6;
+  font-weight:400;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+ul{list-style:none;}
+
+/* ===== Layout ===== */
+.container{max-width:var(--container);margin:0 auto;padding:0 24px;}
+.section{padding:96px 0;position:relative;}
+.section-sm{padding:64px 0;}
+.section.cream{background:var(--cream);}
+.section.teal{background:var(--teal-900);color:var(--white);}
+.section.mint{background:var(--teal-50);}
+
+.eyebrow{
+  display:inline-block;
+  font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal-700);font-weight:600;margin-bottom:16px;
+}
+.eyebrow.on-dark{color:var(--teal-300);}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--charcoal);line-height:1.15;letter-spacing:-.02em;}
+h1{font-size:clamp(36px,5.2vw,64px);font-weight:700;}
+h2{font-size:clamp(28px,3.8vw,46px);font-weight:700;}
+h3{font-size:clamp(20px,2.2vw,26px);font-weight:600;}
+h4{font-size:18px;font-weight:600;}
+.lede{font-size:clamp(17px,1.4vw,20px);color:var(--charcoal-soft);max-width:640px;line-height:1.55;}
+.section-head{text-align:center;max-width:760px;margin:0 auto 64px;}
+.section-head .lede{margin:16px auto 0;}
+
+/* ===== Buttons ===== */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 30px;border-radius:999px;
+  font-weight:600;font-size:15px;
+  transition:all .25s ease;
+  white-space:nowrap;line-height:1;
+}
+.btn-primary{background:var(--orange);color:var(--white);box-shadow:0 6px 18px rgba(232,154,60,.30);}
+.btn-primary:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 10px 24px rgba(232,154,60,.40);}
+.btn-secondary{background:transparent;color:var(--teal-900);border:1.5px solid var(--teal-900);}
+.btn-secondary:hover{background:var(--teal-900);color:var(--white);}
+.btn-secondary.on-dark{color:var(--white);border-color:rgba(255,255,255,.4);}
+.btn-secondary.on-dark:hover{background:var(--white);color:var(--teal-900);}
+.btn-whatsapp{background:var(--coral);color:var(--white);box-shadow:0 6px 18px rgba(231,106,85,.30);}
+.btn-whatsapp:hover{background:var(--coral-dark);transform:translateY(-2px);}
+.btn-ghost{color:var(--teal-900);}
+.btn-ghost:hover{color:var(--orange-dark);}
+.btn-row{display:flex;gap:14px;flex-wrap:wrap;}
+
+/* ===== Top utility bar ===== */
+.utility-bar{
+  background:var(--teal-900);color:var(--white);
+  font-size:13.5px;font-weight:400;
+}
+.utility-bar .container{
+  display:flex;align-items:center;justify-content:space-between;
+  height:42px;gap:16px;
+}
+.utility-left{display:flex;gap:24px;align-items:center;flex-wrap:wrap;}
+.utility-left a{display:flex;align-items:center;gap:7px;opacity:.92;transition:opacity .2s;}
+.utility-left a:hover{opacity:1;color:var(--teal-300);}
+.utility-right{display:flex;gap:18px;align-items:center;}
+.utility-right .lang{display:flex;gap:6px;font-size:12px;letter-spacing:.04em;}
+.utility-right .lang a{opacity:.7;}
+.utility-right .lang a.active{opacity:1;color:var(--teal-300);font-weight:600;}
+.utility-right .socials{display:flex;gap:14px;}
+.utility-right .socials a{opacity:.85;}
+.utility-right .socials a:hover{opacity:1;color:var(--teal-300);}
+@media (max-width:768px){
+  .utility-bar{display:none;}
+}
+
+/* ===== Header ===== */
+.header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.96);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--gray-200);
+}
+.header .container{
+  display:flex;align-items:center;justify-content:space-between;
+  height:84px;gap:24px;
+}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-mark{width:46px;height:46px;flex-shrink:0;}
+.logo-text{display:flex;flex-direction:column;line-height:1;font-weight:700;}
+.logo-text .l1{font-size:20px;color:var(--teal-900);font-weight:700;letter-spacing:-.02em;}
+.logo-text .l2{font-size:11px;color:var(--teal-700);font-weight:400;letter-spacing:.04em;margin-top:3px;}
+.nav-main{display:flex;gap:6px;align-items:center;}
+.nav-main a{
+  padding:10px 14px;font-size:15px;font-weight:500;color:var(--charcoal);
+  border-radius:8px;transition:all .2s;position:relative;
+}
+.nav-main a:hover{color:var(--teal-900);background:var(--teal-50);}
+.nav-main a.active{color:var(--teal-900);font-weight:600;}
+.nav-main a.active::after{
+  content:'';position:absolute;bottom:-2px;left:14px;right:14px;height:2px;background:var(--orange);border-radius:2px;
+}
+.header-cta{display:flex;gap:10px;align-items:center;}
+.header-cta .btn{padding:12px 22px;font-size:14px;}
+.menu-toggle{display:none;width:42px;height:42px;border-radius:8px;border:1px solid var(--gray-200);align-items:center;justify-content:center;}
+@media (max-width:1024px){
+  .nav-main{display:none;}
+  .menu-toggle{display:inline-flex;}
+  .header-cta .btn-secondary{display:none;}
+}
+@media (max-width:520px){
+  .header .container{height:72px;}
+  .logo-mark{width:40px;height:40px;}
+  .logo-text .l1{font-size:17px;}
+  .logo-text .l2{font-size:10px;}
+  .header-cta .btn{padding:10px 16px;font-size:13px;}
+}
+
+/* Mobile drawer */
+.drawer{
+  position:fixed;inset:0;background:rgba(14,36,36,.6);
+  opacity:0;visibility:hidden;transition:opacity .25s;z-index:200;
+}
+.drawer.open{opacity:1;visibility:visible;}
+.drawer-panel{
+  position:absolute;top:0;right:0;width:min(360px,86vw);height:100%;
+  background:var(--white);padding:24px;
+  transform:translateX(100%);transition:transform .3s;
+  display:flex;flex-direction:column;gap:8px;overflow-y:auto;
+}
+.drawer.open .drawer-panel{transform:translateX(0);}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.drawer a.nav-link{
+  padding:14px 16px;border-radius:10px;font-size:16px;font-weight:500;
+  border-bottom:1px solid var(--gray-100);
+}
+.drawer a.nav-link.active{background:var(--teal-50);color:var(--teal-900);font-weight:600;}
+.drawer .btn{justify-content:center;margin-top:8px;}
+
+/* ===== Page system ===== */
+.page{display:none;}
+.page.active{display:block;}
+
+/* ===== Hero ===== */
+.hero{padding:80px 0 100px;background:linear-gradient(180deg,var(--cream) 0%,var(--white) 100%);position:relative;overflow:hidden;}
+.hero::before{
+  content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;
+  background:radial-gradient(circle, var(--teal-100) 0%, transparent 70%);opacity:.5;
+}
+.hero .container{position:relative;z-index:1;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.hero-trust{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 16px;background:var(--white);border-radius:999px;
+  box-shadow:var(--shadow-sm);font-size:13.5px;font-weight:500;margin-bottom:24px;
+}
+.hero-trust .stars{color:#F4B400;letter-spacing:1px;}
+.hero h1{margin-bottom:20px;}
+.hero h1 .accent{color:var(--teal-900);position:relative;display:inline-block;}
+.hero h1 .accent::after{
+  content:'';position:absolute;left:0;right:0;bottom:6px;height:10px;background:var(--orange);opacity:.25;border-radius:4px;z-index:-1;
+}
+.hero .lede{margin-bottom:32px;}
+.hero-meta{margin-top:36px;display:flex;gap:32px;flex-wrap:wrap;}
+.hero-meta-item{display:flex;align-items:center;gap:12px;}
+.hero-meta-item .num{font-size:28px;font-weight:700;color:var(--teal-900);line-height:1;}
+.hero-meta-item .label{font-size:13px;color:var(--gray-500);}
+
+/* Hero illustration — clinical photo placeholder */
+.hero-visual{position:relative;height:540px;}
+.hero-img{
+  position:absolute;border-radius:var(--radius-lg);overflow:hidden;
+  box-shadow:var(--shadow-lg);
+}
+.hero-img.main{
+  top:0;right:0;width:78%;height:78%;
+  background:
+    linear-gradient(135deg,rgba(14,79,79,.4) 0%, rgba(14,79,79,.05) 60%),
+    linear-gradient(135deg, var(--teal-500) 0%, var(--teal-300) 100%);
+  display:flex;align-items:flex-end;padding:24px;color:var(--white);
+}
+.hero-img.main::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle at 30% 40%, rgba(255,255,255,.12) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,.08) 0%, transparent 50%);
+}
+.hero-img.main .caption{position:relative;font-size:13px;font-weight:500;background:rgba(0,0,0,.25);padding:8px 14px;border-radius:8px;backdrop-filter:blur(6px);}
+.hero-img.accent{
+  bottom:0;left:0;width:54%;height:48%;
+  background:
+    linear-gradient(135deg,rgba(14,79,79,.5),rgba(14,79,79,.1)),
+    linear-gradient(135deg,var(--cream-deep),var(--gray-200));
+  display:flex;align-items:flex-end;padding:20px;
+  border:6px solid var(--white);
+}
+.hero-img.accent .caption{
+  background:var(--white);color:var(--teal-900);padding:10px 16px;border-radius:8px;
+  font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;
+}
+.hero-floating-card{
+  position:absolute;top:30%;left:-30px;background:var(--white);
+  padding:18px 22px;border-radius:var(--radius-md);box-shadow:var(--shadow-lg);
+  display:flex;align-items:center;gap:14px;z-index:2;
+}
+.hero-floating-card .ico{
+  width:46px;height:46px;border-radius:50%;background:var(--teal-50);
+  display:flex;align-items:center;justify-content:center;color:var(--teal-700);flex-shrink:0;
+}
+.hero-floating-card .text{font-size:13px;line-height:1.4;}
+.hero-floating-card .text strong{font-size:14px;color:var(--teal-900);display:block;}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:48px;}
+  .hero-visual{height:420px;}
+  .hero-floating-card{display:none;}
+}
+@media (max-width:520px){
+  .hero{padding:48px 0 64px;}
+  .hero-visual{height:340px;}
+  .hero-img.main{width:88%;height:80%;}
+  .hero-img.accent{width:50%;height:42%;}
+  .hero-meta{gap:20px;}
+  .hero-meta-item .num{font-size:22px;}
+}
+
+/* ===== Brand partner row ===== */
+.partners{padding:48px 0;border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200);background:var(--white);}
+.partners-label{
+  text-align:center;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gray-500);font-weight:600;margin-bottom:28px;
+}
+.partners-row{
+  display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;
+}
+.partner-logo{
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.02em;
+  color:var(--gray-500);opacity:.8;transition:opacity .2s;
+  font-style:italic;
+}
+.partner-logo:hover{opacity:1;color:var(--teal-900);}
+.partner-logo.brand-1{font-style:normal;letter-spacing:.04em;}
+.partner-logo.brand-2{font-weight:800;}
+.partner-logo.brand-3{font-style:italic;font-weight:600;}
+.partner-logo.brand-4{font-weight:300;letter-spacing:.06em;text-transform:uppercase;font-size:15px;}
+.partner-logo.brand-5{font-weight:700;font-style:normal;}
+.partner-logo.brand-6{font-weight:500;letter-spacing:.02em;}
+@media (max-width:768px){
+  .partners-row{justify-content:center;gap:28px;}
+  .partner-logo{font-size:15px;}
+}
+
+/* ===== Flagship services (2 large cards) ===== */
+.flagship-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+.flagship-card{
+  background:var(--white);border-radius:var(--radius-lg);overflow:hidden;
+  box-shadow:var(--shadow-md);transition:all .3s;
+  border:1px solid var(--gray-100);
+}
+.flagship-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+.flagship-image{
+  height:240px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--teal-700),var(--teal-300));
+  display:flex;align-items:center;justify-content:center;
+}
+.flagship-image.alt{background:linear-gradient(135deg,var(--teal-900),var(--teal-500));}
+.flagship-image::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 70% 30%,rgba(255,255,255,.15),transparent 60%);
+}
+.flagship-image .icon-large{
+  width:88px;height:88px;color:var(--white);opacity:.95;
+  position:relative;z-index:1;
+}
+.flagship-tag{
+  position:absolute;top:18px;left:18px;background:var(--white);color:var(--teal-900);
+  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:6px 12px;border-radius:999px;z-index:2;
+}
+.flagship-content{padding:32px;}
+.flagship-content h3{margin-bottom:12px;color:var(--teal-900);}
+.flagship-content p{font-size:15.5px;color:var(--charcoal-soft);margin-bottom:20px;}
+.flagship-bullets{margin-bottom:24px;}
+.flagship-bullets li{
+  padding:7px 0;display:flex;align-items:flex-start;gap:10px;
+  font-size:14.5px;color:var(--charcoal-soft);
+}
+.flagship-bullets li::before{
+  content:'';flex-shrink:0;width:18px;height:18px;border-radius:50%;
+  background:var(--teal-50);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230E4F4F' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
+  background-size:11px;background-repeat:no-repeat;background-position:center;
+  margin-top:3px;
+}
+.flagship-cta{display:flex;gap:12px;flex-wrap:wrap;}
+.flagship-cta .btn{padding:11px 20px;font-size:14px;}
+@media (max-width:780px){
+  .flagship-grid{grid-template-columns:1fr;gap:24px;}
+}
+
+/* ===== Caregiver section ===== */
+.caregiver{
+  background:var(--teal-900);color:var(--white);position:relative;overflow:hidden;
+}
+.caregiver::before{
+  content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;
+  background:radial-gradient(circle,var(--teal-700) 0%,transparent 70%);
+}
+.caregiver .container{position:relative;z-index:1;}
+.caregiver-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;}
+.caregiver h2{color:var(--white);margin-bottom:20px;}
+.caregiver h2 em{color:var(--teal-300);font-style:normal;}
+.caregiver .lede{color:rgba(255,255,255,.85);margin-bottom:32px;max-width:none;}
+.caregiver-signs{display:grid;grid-template-columns:1fr;gap:16px;}
+.sign-card{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  padding:22px 24px;border-radius:var(--radius-md);
+  display:flex;gap:18px;align-items:flex-start;
+}
+.sign-card .ico{
+  width:44px;height:44px;border-radius:12px;background:var(--orange);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--white);
+}
+.sign-card h4{color:var(--white);margin-bottom:4px;}
+.sign-card p{font-size:14px;color:rgba(255,255,255,.75);line-height:1.5;}
+.caregiver-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+@media (max-width:880px){
+  .caregiver-grid{grid-template-columns:1fr;gap:40px;}
+}
+
+/* ===== Secondary services strip ===== */
+.secondary-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+.secondary-card{
+  background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-md);
+  padding:28px 22px;text-align:left;transition:all .25s;cursor:pointer;
+  display:flex;flex-direction:column;height:100%;
+}
+.secondary-card:hover{
+  border-color:var(--teal-500);transform:translateY(-4px);box-shadow:var(--shadow-md);
+}
+.secondary-card .ico{
+  width:48px;height:48px;border-radius:12px;background:var(--teal-50);
+  display:flex;align-items:center;justify-content:center;color:var(--teal-700);margin-bottom:18px;
+}
+.secondary-card h4{color:var(--teal-900);margin-bottom:8px;font-size:16.5px;}
+.secondary-card p{font-size:13.5px;color:var(--gray-500);line-height:1.5;flex-grow:1;}
+.secondary-card .more{
+  margin-top:14px;font-size:13px;font-weight:600;color:var(--orange-dark);
+  display:flex;align-items:center;gap:6px;
+}
+@media (max-width:1024px){
+  .secondary-grid{grid-template-columns:repeat(3,1fr);}
+}
+@media (max-width:680px){
+  .secondary-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .secondary-card{padding:22px 18px;}
+}
+
+/* ===== Clinical proof / stats ===== */
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:center;}
+.proof-card{
+  padding:40px 28px;border-radius:var(--radius-lg);
+  background:var(--cream);border:1px solid var(--cream-deep);
+}
+.proof-num{
+  font-size:clamp(40px,5vw,56px);font-weight:700;color:var(--teal-900);
+  line-height:1;margin-bottom:12px;letter-spacing:-.02em;
+}
+.proof-num .small{font-size:.55em;color:var(--orange-dark);}
+.proof-label{font-weight:600;color:var(--charcoal);margin-bottom:8px;font-size:16px;}
+.proof-desc{font-size:13.5px;color:var(--gray-500);line-height:1.5;}
+.proof-cite{font-size:11px;color:var(--gray-500);margin-top:12px;font-style:italic;}
+@media (max-width:780px){.proof-grid{grid-template-columns:1fr;gap:16px;}}
+
+/* ===== Video testimonials ===== */
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.video-card{
+  border-radius:var(--radius-lg);overflow:hidden;background:var(--white);
+  box-shadow:var(--shadow-sm);transition:all .3s;cursor:pointer;
+}
+.video-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.video-thumb{
+  height:240px;background:linear-gradient(135deg,var(--teal-700),var(--teal-300));
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.video-thumb.alt-1{background:linear-gradient(135deg,var(--orange),var(--coral));}
+.video-thumb.alt-2{background:linear-gradient(135deg,var(--teal-900),var(--teal-500));}
+.play-btn{
+  width:64px;height:64px;border-radius:50%;background:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(0,0,0,.2);
+  transition:transform .2s;
+}
+.video-card:hover .play-btn{transform:scale(1.1);}
+.play-btn svg{color:var(--coral);width:24px;height:24px;margin-left:3px;}
+.video-meta{
+  position:absolute;bottom:14px;left:14px;background:rgba(0,0,0,.45);
+  color:var(--white);padding:6px 12px;border-radius:6px;
+  font-size:12px;font-weight:500;backdrop-filter:blur(4px);
+}
+.video-info{padding:20px 22px;}
+.video-info h4{color:var(--teal-900);margin-bottom:6px;font-size:17px;}
+.video-info p{font-size:13.5px;color:var(--gray-500);}
+@media (max-width:880px){
+  .video-grid{grid-template-columns:1fr;gap:16px;}
+  .video-thumb{height:200px;}
+}
+
+/* ===== Reviews wall ===== */
+.reviews-header{
+  display:flex;align-items:center;justify-content:center;gap:24px;
+  flex-wrap:wrap;margin-bottom:48px;
+}
+.google-badge{
+  display:flex;align-items:center;gap:14px;padding:18px 24px;
+  background:var(--white);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);
+  border:1px solid var(--gray-200);
+}
+.google-badge .glogo{
+  width:32px;height:32px;border-radius:50%;
+  background:conic-gradient(from 0deg, #EA4335, #FBBC05, #34A853, #4285F4, #EA4335);
+  display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:14px;
+}
+.google-badge .ratings .score{font-size:22px;font-weight:700;color:var(--teal-900);line-height:1;}
+.google-badge .ratings .stars{color:#F4B400;font-size:14px;letter-spacing:2px;margin:4px 0;}
+.google-badge .ratings .count{font-size:12px;color:var(--gray-500);}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.review-card{
+  background:var(--white);border:1px solid var(--gray-200);
+  border-radius:var(--radius-md);padding:28px;transition:all .25s;
+}
+.review-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);}
+.review-stars{color:#F4B400;letter-spacing:2px;margin-bottom:14px;font-size:14px;}
+.review-quote{font-size:15px;color:var(--charcoal);line-height:1.6;margin-bottom:20px;}
+.review-author{display:flex;align-items:center;gap:12px;}
+.review-avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,var(--teal-500),var(--teal-300));
+  display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:600;font-size:14px;flex-shrink:0;
+}
+.review-name{font-weight:600;color:var(--teal-900);font-size:14px;}
+.review-verified{font-size:12px;color:var(--gray-500);display:flex;align-items:center;gap:5px;}
+.review-verified::before{content:'';width:14px;height:14px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234285F4'><path d='M12 1l3.09 6.26L22 8.27l-5 4.87 1.18 6.88L12 16.77l-6.18 3.25L7 13.14 2 8.27l6.91-1.01L12 1z'/></svg>") no-repeat center/contain;}
+@media (max-width:980px){.review-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:680px){.review-grid{grid-template-columns:1fr;}}
+
+/* ===== Team ===== */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.team-card{
+  background:var(--white);border-radius:var(--radius-lg);overflow:hidden;
+  border:1px solid var(--gray-200);transition:all .3s;
+}
+.team-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.team-photo{
+  height:300px;
+  background:linear-gradient(135deg,var(--teal-100),var(--teal-300));
+  display:flex;align-items:flex-end;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.team-photo.t-1{background:linear-gradient(135deg,#A8D5D3,#7FC9C7);}
+.team-photo.t-2{background:linear-gradient(135deg,#B8DDDB,#9FD2D0);}
+.team-photo.t-3{background:linear-gradient(135deg,#C4E0DE,#A8D5D3);}
+.team-photo .silhouette{
+  width:60%;height:88%;
+  background:rgba(14,79,79,.15);
+  border-radius:50% 50% 0 0;
+  margin-top:auto;
+}
+.team-info{padding:24px 28px 28px;}
+.team-info h4{font-size:20px;color:var(--teal-900);margin-bottom:4px;}
+.team-credentials{font-size:13px;color:var(--orange-dark);font-weight:600;margin-bottom:14px;letter-spacing:.02em;}
+.team-bio{font-size:14px;color:var(--charcoal-soft);line-height:1.6;margin-bottom:16px;}
+.team-langs{font-size:12.5px;color:var(--gray-500);}
+.team-langs strong{color:var(--teal-900);font-weight:600;}
+@media (max-width:880px){.team-grid{grid-template-columns:1fr;gap:20px;}.team-photo{height:240px;}}
+
+/* ===== Comparison table ===== */
+.compare-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center;}
+.compare-img{
+  height:480px;border-radius:var(--radius-lg);overflow:hidden;
+  background:linear-gradient(135deg,var(--teal-700),var(--teal-300));
+  position:relative;
+}
+.compare-img::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.18),transparent 50%);
+}
+.compare-table{
+  background:var(--white);border-radius:var(--radius-lg);overflow:hidden;
+  border:1px solid var(--gray-200);box-shadow:var(--shadow-sm);
+}
+.compare-head{display:grid;grid-template-columns:1.4fr 1fr 1fr;background:var(--teal-900);color:var(--white);}
+.compare-head > div{padding:18px 16px;font-weight:600;font-size:14px;}
+.compare-head .us{background:var(--teal-700);text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;}
+.compare-head .us .small{font-size:11px;color:var(--teal-300);font-weight:500;letter-spacing:.08em;text-transform:uppercase;}
+.compare-head .them{text-align:center;color:rgba(255,255,255,.7);}
+.compare-row{display:grid;grid-template-columns:1.4fr 1fr 1fr;border-bottom:1px solid var(--gray-100);}
+.compare-row:last-child{border-bottom:none;}
+.compare-row > div{padding:16px;font-size:14.5px;display:flex;align-items:center;}
+.compare-row .feature{color:var(--charcoal);font-weight:500;}
+.compare-row .check{color:var(--teal-700);justify-content:center;}
+.compare-row .x{color:var(--coral);justify-content:center;}
+.compare-row:nth-child(even){background:var(--cream);}
+@media (max-width:880px){
+  .compare-wrap{grid-template-columns:1fr;gap:32px;}
+  .compare-img{height:240px;}
+}
+
+/* ===== FAQ ===== */
+.faq-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;}
+.faq-tab{
+  padding:11px 22px;border-radius:999px;font-size:14px;font-weight:500;
+  background:var(--white);border:1.5px solid var(--gray-200);color:var(--charcoal-soft);
+  cursor:pointer;transition:all .2s;
+}
+.faq-tab.active{background:var(--teal-900);border-color:var(--teal-900);color:var(--white);}
+.faq-tab:hover:not(.active){border-color:var(--teal-500);color:var(--teal-900);}
+.faq-list{max-width:820px;margin:0 auto;display:none;}
+.faq-list.active{display:block;}
+.faq-item{
+  background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-md);
+  margin-bottom:12px;overflow:hidden;transition:all .2s;
+}
+.faq-item.open{border-color:var(--teal-500);box-shadow:var(--shadow-sm);}
+.faq-q{
+  padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  cursor:pointer;font-weight:600;font-size:16px;color:var(--teal-900);
+}
+.faq-toggle{
+  width:28px;height:28px;border-radius:50%;background:var(--teal-50);color:var(--teal-700);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:transform .25s;
+}
+.faq-item.open .faq-toggle{transform:rotate(45deg);background:var(--orange);color:var(--white);}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .3s ease, padding .2s;
+  font-size:15px;color:var(--charcoal-soft);line-height:1.65;
+  padding:0 26px;
+}
+.faq-item.open .faq-a{max-height:600px;padding:0 26px 24px;}
+
+/* ===== Booking / Contact block ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+.contact-form{
+  background:var(--white);padding:36px;border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-md);border:1px solid var(--gray-100);
+}
+.form-row{margin-bottom:18px;}
+.form-row.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-row label{display:block;font-size:13px;font-weight:600;color:var(--teal-900);margin-bottom:6px;letter-spacing:.02em;}
+.form-row input,.form-row select,.form-row textarea{
+  width:100%;padding:13px 16px;border-radius:10px;
+  border:1.5px solid var(--gray-200);font-family:inherit;font-size:15px;color:var(--charcoal);
+  background:var(--white);transition:border-color .2s;
+}
+.form-row input:focus,.form-row select:focus,.form-row textarea:focus{outline:none;border-color:var(--teal-500);}
+.form-row textarea{min-height:110px;resize:vertical;}
+.form-row .help{font-size:12px;color:var(--gray-500);margin-top:6px;}
+.contact-form .btn{width:100%;justify-content:center;margin-top:8px;}
+.contact-form .privacy{font-size:12px;color:var(--gray-500);text-align:center;margin-top:12px;}
+
+.contact-aside{display:flex;flex-direction:column;gap:24px;}
+.contact-card{
+  background:var(--white);padding:28px;border-radius:var(--radius-md);
+  border:1px solid var(--gray-200);
+}
+.contact-card h4{color:var(--teal-900);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.contact-card .ico{
+  width:36px;height:36px;border-radius:10px;background:var(--teal-50);
+  display:flex;align-items:center;justify-content:center;color:var(--teal-700);
+}
+.contact-detail{display:flex;align-items:flex-start;gap:14px;font-size:14.5px;color:var(--charcoal-soft);margin-bottom:10px;}
+.contact-detail strong{color:var(--teal-900);font-weight:600;}
+.map-card{
+  height:240px;border-radius:var(--radius-md);overflow:hidden;
+  background:linear-gradient(135deg,var(--cream-deep),var(--gray-200));
+  display:flex;align-items:center;justify-content:center;color:var(--gray-500);
+  position:relative;
+  background-image:
+    linear-gradient(rgba(14,79,79,.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14,79,79,.1) 1px, transparent 1px);
+  background-size:40px 40px;
+}
+.map-card .pin{
+  width:48px;height:48px;border-radius:50% 50% 50% 0;background:var(--coral);
+  transform:rotate(-45deg);box-shadow:var(--shadow-md);
+  display:flex;align-items:center;justify-content:center;color:var(--white);
+}
+.map-card .pin svg{transform:rotate(45deg);}
+.directions-tabs{display:flex;gap:6px;margin-bottom:14px;}
+.dir-tab{
+  flex:1;padding:9px;font-size:12.5px;font-weight:600;border-radius:8px;
+  background:var(--gray-100);color:var(--charcoal-soft);cursor:pointer;text-align:center;
+}
+.dir-tab.active{background:var(--teal-900);color:var(--white);}
+.dir-content{font-size:13.5px;color:var(--charcoal-soft);line-height:1.6;display:none;}
+.dir-content.active{display:block;}
+@media (max-width:880px){.contact-grid{grid-template-columns:1fr;gap:32px;}}
+
+/* ===== Footer ===== */
+.footer{
+  background:var(--teal-900);color:var(--white);padding:80px 0 0;
+}
+.footer-grid{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px;
+}
+.footer-brand .logo .l1{color:var(--white);}
+.footer-brand .logo .l2{color:var(--teal-300);}
+.footer-brand p{font-size:14px;color:rgba(255,255,255,.7);margin:18px 0 24px;line-height:1.6;}
+.footer-socials{display:flex;gap:10px;}
+.footer-socials a{
+  width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;color:var(--teal-300);transition:all .2s;
+}
+.footer-socials a:hover{background:var(--orange);color:var(--white);}
+.footer-col h4{color:var(--white);margin-bottom:18px;font-size:15px;font-weight:600;letter-spacing:.04em;}
+.footer-col ul li{margin-bottom:10px;}
+.footer-col a{font-size:14px;color:rgba(255,255,255,.7);transition:color .2s;}
+.footer-col a:hover{color:var(--teal-300);}
+.footer-contact-item{font-size:14px;color:rgba(255,255,255,.7);margin-bottom:10px;line-height:1.5;}
+.footer-contact-item strong{color:var(--white);font-weight:600;}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.08);padding:28px 0;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+  font-size:13px;color:rgba(255,255,255,.6);
+}
+@media (max-width:880px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px;}}
+@media (max-width:520px){.footer-grid{grid-template-columns:1fr;}}
+
+/* ===== Floating WhatsApp + mobile cta bar ===== */
+.whatsapp-float{
+  position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;
+  background:var(--coral);color:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 28px rgba(231,106,85,.4);z-index:90;
+  transition:transform .2s;
+}
+.whatsapp-float:hover{transform:scale(1.08);}
+.whatsapp-float::after{
+  content:'';position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--coral);
+  animation:pulse 2s infinite;opacity:.4;
+}
+@keyframes pulse{
+  0%{transform:scale(1);opacity:.5;}
+  100%{transform:scale(1.4);opacity:0;}
+}
+.mobile-cta-bar{
+  display:none;position:fixed;bottom:0;left:0;right:0;background:var(--white);
+  border-top:1px solid var(--gray-200);padding:12px 16px;z-index:80;gap:10px;
+  box-shadow:0 -4px 16px rgba(0,0,0,.05);
+}
+.mobile-cta-bar .btn{flex:1;justify-content:center;padding:13px;font-size:14px;}
+@media (max-width:680px){
+  .mobile-cta-bar{display:flex;}
+  body{padding-bottom:74px;}
+  .whatsapp-float{bottom:88px;right:16px;width:52px;height:52px;}
+}
+
+/* ===== Page hero (inner pages) ===== */
+.page-hero{
+  background:linear-gradient(180deg,var(--cream) 0%,var(--white) 100%);
+  padding:80px 0 64px;text-align:center;position:relative;overflow:hidden;
+}
+.page-hero::before{
+  content:'';position:absolute;top:-150px;left:50%;transform:translateX(-50%);
+  width:700px;height:400px;
+  background:radial-gradient(ellipse,var(--teal-100),transparent 70%);opacity:.6;
+}
+.page-hero .container{position:relative;z-index:1;}
+.page-hero .breadcrumb{font-size:13px;color:var(--gray-500);margin-bottom:18px;}
+.page-hero .breadcrumb a{color:var(--teal-700);}
+.page-hero h1{margin-bottom:18px;}
+.page-hero .lede{margin:0 auto;}
+
+/* ===== About — story split ===== */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.story-img{
+  height:480px;border-radius:var(--radius-lg);overflow:hidden;
+  background:linear-gradient(135deg,var(--teal-700),var(--teal-300));
+  position:relative;
+}
+.story-img::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 70% 30%,rgba(255,255,255,.15),transparent 50%);
+}
+.story-img.alt{background:linear-gradient(135deg,var(--cream-deep),var(--gray-200));}
+.story-img.alt::after{background:radial-gradient(circle at 30% 70%,rgba(232,154,60,.15),transparent 50%);}
+.story-content h2{margin-bottom:20px;}
+.story-content .lede{margin-bottom:24px;}
+.story-quote{
+  border-left:3px solid var(--orange);padding-left:20px;margin-top:24px;
+  font-style:italic;color:var(--charcoal-soft);font-size:15.5px;
+}
+.story-quote .who{
+  display:block;margin-top:10px;font-size:13.5px;color:var(--teal-900);font-weight:600;font-style:normal;
+}
+@media (max-width:880px){
+  .story-grid{grid-template-columns:1fr;gap:32px;}
+  .story-img{height:280px;order:-1;}
+}
+
+/* ===== Hearing loss page bits ===== */
+.types-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.type-card{
+  background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-md);
+  padding:32px 28px;
+}
+.type-card .badge{
+  display:inline-block;padding:4px 10px;background:var(--teal-50);color:var(--teal-700);
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:6px;margin-bottom:14px;
+}
+.type-card h4{color:var(--teal-900);margin-bottom:10px;}
+.type-card p{font-size:14.5px;color:var(--charcoal-soft);line-height:1.6;margin-bottom:14px;}
+.type-card ul li{
+  font-size:13.5px;padding:6px 0;padding-left:20px;position:relative;color:var(--charcoal-soft);
+}
+.type-card ul li::before{
+  content:'';position:absolute;left:0;top:13px;width:8px;height:8px;border-radius:50%;background:var(--teal-300);
+}
+@media (max-width:880px){.types-grid{grid-template-columns:1fr;}}
+
+.signs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.sign-row{
+  background:var(--cream);padding:24px 28px;border-radius:var(--radius-md);
+  display:flex;gap:18px;align-items:flex-start;
+}
+.sign-row .num{
+  width:40px;height:40px;border-radius:50%;background:var(--orange);color:var(--white);
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex-shrink:0;
+}
+.sign-row h4{color:var(--teal-900);margin-bottom:4px;font-size:16px;}
+.sign-row p{font-size:14px;color:var(--charcoal-soft);line-height:1.55;}
+@media (max-width:680px){.signs-grid{grid-template-columns:1fr;}}
+
+/* ===== Pricing ===== */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;}
+.price-card{
+  background:var(--white);border:1.5px solid var(--gray-200);border-radius:var(--radius-lg);
+  padding:36px 32px;display:flex;flex-direction:column;transition:all .25s;position:relative;
+}
+.price-card.featured{
+  border-color:var(--teal-900);box-shadow:var(--shadow-lg);transform:scale(1.02);
+}
+.price-card.featured::before{
+  content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--orange);color:var(--white);padding:5px 16px;border-radius:999px;
+  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+}
+.price-card .tier-name{color:var(--teal-900);font-size:18px;font-weight:600;margin-bottom:8px;}
+.price-card .tier-desc{font-size:13.5px;color:var(--gray-500);margin-bottom:20px;}
+.price-amount{display:flex;align-items:baseline;gap:6px;margin-bottom:24px;}
+.price-amount .currency{font-size:20px;color:var(--gray-500);font-weight:500;}
+.price-amount .number{font-size:48px;font-weight:700;color:var(--teal-900);line-height:1;letter-spacing:-.02em;}
+.price-amount .duration{font-size:14px;color:var(--gray-500);margin-left:6px;}
+.price-includes{padding:24px 0;border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100);margin-bottom:24px;flex-grow:1;}
+.price-includes li{
+  display:flex;align-items:flex-start;gap:10px;padding:7px 0;font-size:14px;color:var(--charcoal-soft);
+}
+.price-includes li::before{
+  content:'';flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--teal-50);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230E4F4F' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
+  background-size:11px;background-repeat:no-repeat;background-position:center;margin-top:3px;
+}
+.price-card .btn{width:100%;justify-content:center;}
+@media (max-width:980px){.pricing-grid{grid-template-columns:1fr;gap:32px;}.price-card.featured{transform:none;}}
+
+.aid-tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.aid-tier{
+  padding:28px;border-radius:var(--radius-md);background:var(--white);border:1px solid var(--gray-200);
+}
+.aid-tier .lvl{
+  display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 10px;background:var(--teal-50);color:var(--teal-700);border-radius:6px;margin-bottom:14px;
+}
+.aid-tier .lvl.mid{background:#FFF1DD;color:var(--orange-dark);}
+.aid-tier .lvl.prem{background:#FBDED7;color:var(--coral-dark);}
+.aid-tier h4{color:var(--teal-900);margin-bottom:8px;}
+.aid-tier .from{font-size:14px;color:var(--gray-500);margin-bottom:16px;}
+.aid-tier .from strong{font-size:22px;color:var(--teal-900);font-weight:700;}
+.aid-tier ul li{font-size:13.5px;padding:5px 0;color:var(--charcoal-soft);}
+@media (max-width:880px){.aid-tier-grid{grid-template-columns:1fr;}}
+
+/* ===== Why we charge ===== */
+.why-charge{
+  background:var(--cream);border-radius:var(--radius-lg);padding:48px;
+  display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;
+}
+.why-charge .badge-icon{
+  width:80px;height:80px;border-radius:50%;background:var(--teal-900);
+  display:flex;align-items:center;justify-content:center;color:var(--white);flex-shrink:0;
+}
+.why-charge h3{color:var(--teal-900);margin-bottom:10px;}
+.why-charge p{color:var(--charcoal-soft);font-size:15.5px;line-height:1.6;}
+@media (max-width:680px){.why-charge{padding:32px;grid-template-columns:1fr;text-align:center;}}
+
+/* ===== Final CTA banner ===== */
+.cta-banner{
+  background:linear-gradient(135deg,var(--teal-900),var(--teal-700));
+  border-radius:var(--radius-xl);padding:64px 56px;color:var(--white);
+  display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.cta-banner::before{
+  content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;
+  background:radial-gradient(circle,rgba(232,154,60,.2),transparent 70%);
+}
+.cta-banner .content{position:relative;z-index:1;}
+.cta-banner h2{color:var(--white);margin-bottom:14px;}
+.cta-banner p{color:rgba(255,255,255,.85);font-size:16px;}
+.cta-banner .actions{position:relative;z-index:1;display:flex;flex-direction:column;gap:12px;}
+.cta-banner .btn{justify-content:center;}
+@media (max-width:780px){.cta-banner{grid-template-columns:1fr;padding:48px 32px;text-align:center;}}
+
+/* ===== Utility helpers ===== */
+.text-center{text-align:center;}
+.mt-md{margin-top:32px;}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOP UTILITY BAR
+     ============================================================ -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-left">
+      <a href="tel:+6569046077" aria-label="Phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +65 6904 6077
+      </a>
+      <a href="mailto:enquiry@thehearingroom.com.sg" aria-label="Email">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        enquiry@thehearingroom.com.sg
+      </a>
+      <span style="display:flex;gap:7px;align-items:center;opacity:.85;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Mon–Fri 10am–6pm · Sat 9am–5pm
+      </span>
+    </div>
+    <div class="utility-right">
+      <div class="lang">
+        <a href="#" class="active">EN</a>
+        <span style="opacity:.4;">·</span>
+        <a href="#">中文</a>
+        <span style="opacity:.4;">·</span>
+        <a href="#">BM</a>
+      </div>
+      <div class="socials">
+        <a href="#" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.885 3.488"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header">
+  <div class="container">
+    <a class="logo" href="#" data-link="home">
+      <svg class="logo-mark" viewBox="0 0 64 64" fill="none">
+        <!-- Ear shape recreating logo -->
+        <path d="M44 12c-8 0-14 6-14 14 0 6 4 8 4 14 0 4-3 6-7 6-3 0-6-2-6-6" stroke="#7FC9C7" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M38 22c0-3 3-6 6-6s6 3 6 6-3 6-6 6c-2 0-3 1-3 3 0 3 3 4 3 7" stroke="#0E4F4F" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <circle cx="44" cy="22" r="2" fill="#0E4F4F"/>
+      </svg>
+      <div class="logo-text">
+        <span class="l1">the hearing room.</span>
+        <span class="l2">real life solutions</span>
+      </div>
+    </a>
+    <nav class="nav-main">
+      <a href="#" data-link="home" class="active">Home</a>
+      <a href="#" data-link="services">Services</a>
+      <a href="#" data-link="about">About</a>
+      <a href="#" data-link="hearing-loss">Hearing Loss Info</a>
+      <a href="#" data-link="pricing">Pricing</a>
+      <a href="#" data-link="faq">FAQ</a>
+      <a href="#" data-link="contact">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a href="#" class="btn btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487 1.794.775 2.502.842 3.404.708.55-.082 1.704-.696 1.945-1.37.241-.674.241-1.252.169-1.371-.073-.118-.27-.19-.566-.336"/></svg>
+        WhatsApp
+      </a>
+      <a href="#" class="btn btn-primary" data-link="contact">Book Hearing Test</a>
+      <button class="menu-toggle" aria-label="Open menu" id="menuToggle">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="drawer" id="drawer">
+  <div class="drawer-panel">
+    <div class="drawer-head">
+      <div style="font-weight:700;color:var(--teal-900);">Menu</div>
+      <button class="menu-toggle" id="drawerClose" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <a href="#" class="nav-link active" data-link="home">Home</a>
+    <a href="#" class="nav-link" data-link="services">Services</a>
+    <a href="#" class="nav-link" data-link="about">About</a>
+    <a href="#" class="nav-link" data-link="hearing-loss">Hearing Loss Info</a>
+    <a href="#" class="nav-link" data-link="pricing">Pricing</a>
+    <a href="#" class="nav-link" data-link="faq">FAQ</a>
+    <a href="#" class="nav-link" data-link="contact">Contact</a>
+    <a href="#" class="btn btn-primary">Book Hearing Test</a>
+    <a href="#" class="btn btn-whatsapp">WhatsApp Us</a>
+  </div>
+</div>
+
+<main>
+
+<!-- ============================================================
+     PAGE: HOME
+     ============================================================ -->
+<section class="page active" data-page="home">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-trust">
+            <span class="stars">★★★★★</span>
+            <span><strong>5.0</strong> · 438+ patient reviews on Google</span>
+          </div>
+          <h1>Personalised hearing care <span class="accent">for every stage of life.</span></h1>
+          <p class="lede">An independent Singapore hearing clinic offering comprehensive diagnostic assessments, professionally fitted hearing aids, and gentle earwax management — delivered by qualified audiologists at The Adelphi.</p>
+          <div class="btn-row">
+            <a href="#" class="btn btn-primary" data-link="contact">Book a Hearing Assessment
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487 1.794.775 2.502.842 3.404.708.55-.082 1.704-.696 1.945-1.37.241-.674.241-1.252.169-1.371-.073-.118-.27-.19-.566-.336"/></svg>
+              Speak to Our Team
+            </a>
+          </div>
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <div>
+                <div class="num">438+</div>
+                <div class="label">5★ Google reviews</div>
+              </div>
+            </div>
+            <div class="hero-meta-item">
+              <div>
+                <div class="num">3</div>
+                <div class="label">Partner brands</div>
+              </div>
+            </div>
+            <div class="hero-meta-item">
+              <div>
+                <div class="num">6</div>
+                <div class="label">Clinical services</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-img main">
+            <div class="caption">Audiologist consultation · The Adelphi</div>
+          </div>
+          <div class="hero-img accent">
+            <div class="caption">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Independent practice
+            </div>
+          </div>
+          <div class="hero-floating-card">
+            <div class="ico">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="text">
+              <strong>Same-week</strong>
+              appointments available
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRAND PARTNERS -->
+  <div class="partners">
+    <div class="container">
+      <div class="partners-label">We fit and service hearing aids from leading manufacturers</div>
+      <div class="partners-row" style="justify-content:center;gap:80px;">
+        <div class="partner-logo brand-4">SIGNIA</div>
+        <div class="partner-logo brand-6">ReSound GN</div>
+        <div class="partner-logo brand-1">PHONAK</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLAGSHIP SERVICES -->
+  <div class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Our priority services</div>
+        <h2>Real-life solutions for the two things our patients ask for most</h2>
+        <p class="lede">From precision-fitted hearing aids to gentle, micro-camera-guided earwax removal — handled by audiologists who explain every step.</p>
+      </div>
+      <div class="flagship-grid">
+        <article class="flagship-card">
+          <div class="flagship-image">
+            <span class="flagship-tag">Flagship Service</span>
+            <svg class="icon-large" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M22 18c0-6 4-10 10-10s10 4 10 10v8c0 4-3 6-3 10 0 4 3 6 3 10 0 5-4 8-9 8h-2"/>
+              <circle cx="32" cy="32" r="4"/>
+              <path d="M44 30c2 0 4-2 4-4s-2-4-4-4"/>
+            </svg>
+          </div>
+          <div class="flagship-content">
+            <h3>Hearing Aids &amp; Assistive Listening Devices</h3>
+            <p>An extensive range of hearing aids from our trusted partner brands — Signia, ReSound GN, and Phonak. We assess your hearing profile and lifestyle, then recommend the device best suited to your needs.</p>
+            <ul class="flagship-bullets">
+              <li>3 trusted brands — Signia, ReSound GN, Phonak</li>
+              <li>Real-Ear Measurement (REM) — gold-standard fitting verification</li>
+              <li>Constant support and regular follow-ups</li>
+              <li>Aural rehabilitation and communication strategies included</li>
+            </ul>
+            <div class="flagship-cta">
+              <a href="#" class="btn btn-primary" data-link="services">Learn more</a>
+              <a href="#" class="btn btn-secondary">Speak to our team</a>
+            </div>
+          </div>
+        </article>
+        <article class="flagship-card">
+          <div class="flagship-image alt">
+            <span class="flagship-tag">Flagship Service</span>
+            <svg class="icon-large" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="32" cy="32" r="20"/>
+              <path d="M22 32c0-5 4-9 10-9s10 4 10 9"/>
+              <circle cx="32" cy="36" r="4" fill="currentColor"/>
+              <path d="M40 18l4-4M52 22l-4 4M52 32h-4"/>
+            </svg>
+          </div>
+          <div class="flagship-content">
+            <h3>Earwax Removal</h3>
+            <p>Excessive earwax build-up can lead to discomfort, hearing loss, and blockage. We provide a safe, non-invasive, fast and effective procedure under direct otoscopic visualisation.</p>
+            <ul class="flagship-bullets">
+              <li>Includes otoscopy and consultation by a clinician</li>
+              <li>Safe, non-invasive irrigation technique</li>
+              <li>Most cases resolved in a single 20-minute appointment</li>
+              <li>Same-day appointments often available</li>
+            </ul>
+            <div class="flagship-cta">
+              <a href="#" class="btn btn-primary" data-link="services">Learn more</a>
+              <a href="#" class="btn btn-secondary">Book online</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAREGIVER SECTION -->
+  <div class="section caregiver">
+    <div class="container">
+      <div class="caregiver-grid">
+        <div>
+          <div class="eyebrow on-dark">For adult children &amp; caregivers</div>
+          <h2>Worried about <em>your parent's</em> hearing?</h2>
+          <p class="lede">You're not imagining it — and it's not "just getting older." Untreated hearing loss is the single largest modifiable risk factor for dementia in mid-life. The good news: most of it is treatable, and we make it easy to start.</p>
+          <div class="caregiver-cta">
+            <a href="#" class="btn btn-primary">Get our free Caregiver's Guide</a>
+            <a href="#" class="btn btn-secondary on-dark">Speak to an audiologist</a>
+          </div>
+        </div>
+        <div class="caregiver-signs">
+          <div class="sign-card">
+            <div class="ico">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>
+            </div>
+            <div>
+              <h4>The TV keeps getting louder</h4>
+              <p>You're constantly asking them to turn it down — they say it sounds "just right."</p>
+            </div>
+          </div>
+          <div class="sign-card">
+            <div class="ico">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <h4>"Sorry, what?" in restaurants</h4>
+              <p>Group conversations, background noise, or phone calls become exhausting — and they start avoiding them.</p>
+            </div>
+          </div>
+          <div class="sign-card">
+            <div class="ico">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+            </div>
+            <div>
+              <h4>They're withdrawing socially</h4>
+              <p>Skipping family dinners or church groups they used to love. Hearing loss isolates — and isolation accelerates cognitive decline.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECONDARY SERVICES -->
+  <div class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Comprehensive hearing care</div>
+        <h2>Every clinical service under one roof</h2>
+      </div>
+      <div class="secondary-grid">
+        <div class="secondary-card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h4>Hearing Test (Assessment)</h4>
+          <p>Gold-standard pure-tone audiometry with a fully explained report.</p>
+          <span class="more">Learn more →</span>
+        </div>
+        <div class="secondary-card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>
+          </div>
+          <h4>Tinnitus Management</h4>
+          <p>Sound therapy, tinnitus retraining, mindfulness, and CBT support.</p>
+          <span class="more">Learn more →</span>
+        </div>
+        <div class="secondary-card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4>Aural Rehabilitation</h4>
+          <p>Communication strategies and goal-setting for everyday hearing.</p>
+          <span class="more">Learn more →</span>
+        </div>
+        <div class="secondary-card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h4>Education Talks</h4>
+          <p>Workplace and community seminars on hearing loss prevention.</p>
+          <span class="more">Learn more →</span>
+        </div>
+        <div class="secondary-card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h4>HA Reprogramming</h4>
+          <p>Reprogramming for Signia, Phonak, Starkey &amp; ReSound devices from elsewhere.</p>
+          <span class="more">Learn more →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLINICAL PROOF -->
+  <div class="section cream">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Why hearing care matters</div>
+        <h2>Hearing loss isn't just about hearing</h2>
+        <p class="lede">It's a clinical risk factor for some of the most serious conditions facing seniors — and it's the most addressable one.</p>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <div class="proof-num">200<span class="small">–</span>500<span class="small">%</span></div>
+          <div class="proof-label">Higher dementia risk</div>
+          <div class="proof-desc">Untreated mid-life hearing loss is the single largest modifiable risk factor for dementia.</div>
+          <div class="proof-cite">— Lancet Commission on Dementia Prevention</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-num">3<span class="small">×</span></div>
+          <div class="proof-label">Higher risk of falls</div>
+          <div class="proof-desc">Adults with even mild hearing loss are three times more likely to have a history of falling.</div>
+          <div class="proof-cite">— Johns Hopkins Medicine</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-num">438<span class="small">+</span></div>
+          <div class="proof-label">5-star Google reviews</div>
+          <div class="proof-desc">Verified Google reviews from patients across our hearing aid, earwax, and assessment services.</div>
+          <div class="proof-cite">— Google Business Profile, 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO TESTIMONIALS -->
+  <div class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Patient stories</div>
+        <h2>Hearing change, in their own words</h2>
+        <p class="lede">Three short stories from people who walked through our door wondering if it was worth it — and walked out reconnected.</p>
+      </div>
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-thumb">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="video-meta">2:14 · Hearing Aids</div>
+          </div>
+          <div class="video-info">
+            <h4>"My grandkids stopped repeating themselves."</h4>
+            <p>Margaret, 68 · Bishan</p>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-thumb alt-1">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="video-meta">1:48 · Earwax Removal</div>
+          </div>
+          <div class="video-info">
+            <h4>"I had no idea how blocked I was."</h4>
+            <p>James, 42 · Tanjong Pagar</p>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-thumb alt-2">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="video-meta">3:02 · Caregiver Story</div>
+          </div>
+          <div class="video-info">
+            <h4>"Mum is back at family dinners."</h4>
+            <p>Wei Ling, 47 · Caregiver</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVIEWS WALL -->
+  <div class="section cream">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">438+ patients say it best</div>
+        <h2>The trust we've earned, one ear at a time</h2>
+      </div>
+      <div class="reviews-header">
+        <div class="google-badge">
+          <div class="glogo">G</div>
+          <div class="ratings">
+            <div class="score">5.0</div>
+            <div class="stars">★★★★★</div>
+            <div class="count">438+ reviews on Google</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Worth every penny in return for 1000% hearing gain. Kenny took the time to explain everything thoroughly and made the process easy to understand."</p>
+          <div class="review-author">
+            <div class="review-avatar">RC</div>
+            <div>
+              <div class="review-name">Raymond Cheong</div>
+              <div class="review-verified">Verified Google review</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Brought my mother in for an assessment. The team was patient and kind throughout the entire process. She finally agreed to wear hearing aids — that's a miracle."</p>
+          <div class="review-author">
+            <div class="review-avatar">LH</div>
+            <div>
+              <div class="review-name">Lily Ho</div>
+              <div class="review-verified">Verified Google review</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Earwax removal done with a camera so I could see exactly what was happening. Totally painless. Wish I'd come years ago instead of using cotton buds."</p>
+          <div class="review-author">
+            <div class="review-avatar">VS</div>
+            <div>
+              <div class="review-name">Vivaan Seth</div>
+              <div class="review-verified">Verified Google review</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY US -->
+  <div class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">The Hearing Room standard</div>
+        <h2>What sets our practice apart</h2>
+        <p class="lede">An independent clinic grounded in clinical best practice, evidence-based protocols, and patient-centred care.</p>
+      </div>
+      <div class="compare-wrap">
+        <div class="compare-img"></div>
+        <div class="compare-table">
+          <div class="compare-head">
+            <div>What we offer</div>
+            <div class="us">Included <span class="small">As standard</span></div>
+            <div class="them"></div>
+          </div>
+          <div class="compare-row">
+            <div class="feature">Independent, multi-brand fittings — Signia · ReSound GN · Phonak</div>
+            <div class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div></div>
+          </div>
+          <div class="compare-row">
+            <div class="feature">Real Ear Measurement — gold-standard fitting verification</div>
+            <div class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div></div>
+          </div>
+          <div class="compare-row">
+            <div class="feature">Aural rehabilitation and communication strategies</div>
+            <div class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div></div>
+          </div>
+          <div class="compare-row">
+            <div class="feature">Constant support and regular follow-ups</div>
+            <div class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div></div>
+          </div>
+          <div class="compare-row">
+            <div class="feature">Wheelchair-accessible clinic at City Hall</div>
+            <div class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div></div>
+          </div>
+          <div class="compare-row">
+            <div class="feature">Transparent published pricing across every service</div>
+            <div class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEAM TEASER -->
+  <div class="section cream">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Meet the team</div>
+        <h2>The people who'll actually take care of your ears</h2>
+        <p class="lede">The audiologist who sees you at your first appointment is the one who guides you through every visit — fitting, follow-up, adjustments, and beyond.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-photo t-1"><div class="silhouette"></div></div>
+          <div class="team-info">
+            <h4>Kenny Tan</h4>
+            <div class="team-credentials">Senior Audiologist · MSc Audiology</div>
+            <p class="team-bio">15+ years fitting hearing aids and managing complex cases. Known for taking the time to make sure you understand every option before you decide anything.</p>
+            <div class="team-langs"><strong>Speaks:</strong> English, Mandarin, Hokkien</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo t-2"><div class="silhouette"></div></div>
+          <div class="team-info">
+            <h4>Dr Luke Tan</h4>
+            <div class="team-credentials">Lead Clinician · ENT Specialist</div>
+            <p class="team-bio">Oversees clinical protocols and complex earwax cases. Trained in micro-suction and otoscopy, with a focus on patient comfort and clear explanations.</p>
+            <div class="team-langs"><strong>Speaks:</strong> English, Mandarin</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo t-3"><div class="silhouette"></div></div>
+          <div class="team-info">
+            <h4>Audiology Team</h4>
+            <div class="team-credentials">Qualified Hearing Care Professionals</div>
+            <p class="team-bio">Our wider team of audiologists and hearing care specialists work alongside Kenny and Luke to provide same-week appointments and lifetime aftercare.</p>
+            <div class="team-langs"><strong>Speaks:</strong> English, Mandarin, Malay, Tamil</div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-md">
+        <a href="#" class="btn btn-secondary" data-link="about">Read full bios →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="content">
+          <h2>Ready to hear what you've been missing?</h2>
+          <p>Book a hearing assessment, send us a question on WhatsApp, or download our caregiver guide. Same-week appointments are usually available.</p>
+        </div>
+        <div class="actions">
+          <a href="#" class="btn btn-primary" data-link="contact">Book a Hearing Test</a>
+          <a href="#" class="btn btn-whatsapp">WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================
+     PAGE: SERVICES
+     ============================================================ -->
+<section class="page" data-page="services">
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" data-link="home">Home</a> &nbsp;/&nbsp; Services</div>
+      <h1>Our Services</h1>
+      <p class="lede">Comprehensive hearing care delivered by qualified audiologists at The Adelphi, Singapore.</p>
+    </div>
+  </div>
+
+  <!-- Flagship -->
+  <div class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Priority Services</div>
+        <h2>What most patients come to us for</h2>
+      </div>
+      <div class="flagship-grid">
+        <article class="flagship-card">
+          <div class="flagship-image">
+            <span class="flagship-tag">Priority Service</span>
+            <svg class="icon-large" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M22 18c0-6 4-10 10-10s10 4 10 10v8c0 4-3 6-3 10 0 4 3 6 3 10 0 5-4 8-9 8h-2"/>
+              <circle cx="32" cy="32" r="4"/>
+              <path d="M44 30c2 0 4-2 4-4s-2-4-4-4"/>
+            </svg>
+          </div>
+          <div class="flagship-content">
+            <h3>Hearing Aids &amp; Assistive Listening Devices</h3>
+            <p>An extensive range of hearing aids from our trusted partner brands — Signia, ReSound GN, and Phonak. Recommendations are based on your hearing assessment and lifestyle requirements, with constant support and regular follow-ups.</p>
+            <ul class="flagship-bullets">
+              <li>Real-Ear Measurement (REM) — gold-standard fitting verification</li>
+              <li>Hearing Aids Evaluation: 1.5 hr · S$100 (refundable on purchase)</li>
+              <li>Reprogramming available for devices from other practices</li>
+              <li>Custom ear impressions for IEMs, earplugs, and ear moulds</li>
+              <li>Trusted brands: Signia · ReSound GN · Phonak</li>
+            </ul>
+            <div class="flagship-cta">
+              <a href="#" class="btn btn-primary">Book an Evaluation</a>
+              <a href="#" class="btn btn-secondary">View Pricing</a>
+            </div>
+          </div>
+        </article>
+        <article class="flagship-card">
+          <div class="flagship-image alt">
+            <span class="flagship-tag">Priority Service</span>
+            <svg class="icon-large" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="32" cy="32" r="20"/>
+              <path d="M22 32c0-5 4-9 10-9s10 4 10 9"/>
+              <circle cx="32" cy="36" r="4" fill="currentColor"/>
+              <path d="M40 18l4-4M52 22l-4 4M52 32h-4"/>
+            </svg>
+          </div>
+          <div class="flagship-content">
+            <h3>Earwax Removal</h3>
+            <p>Excessive earwax build-up can lead to discomfort, blockage, and reduced hearing. We provide a safe, non-invasive, fast and effective procedure under direct otoscopic visualisation.</p>
+            <ul class="flagship-bullets">
+              <li>20-minute appointment · S$100 (incl. S$25 otoscopy &amp; consultation)</li>
+              <li>Safe, non-invasive irrigation technique</li>
+              <li>Most cases resolved in a single visit</li>
+              <li>Recommended every 6–12 months for hearing aid users</li>
+              <li>Same-day appointments often available</li>
+            </ul>
+            <div class="flagship-cta">
+              <a href="#" class="btn btn-primary">Book Online</a>
+              <a href="#" class="btn btn-secondary">View Pricing</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- Secondary -->
+  <div class="section cream">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Full clinical menu</div>
+        <h2>Every other service we offer</h2>
+      </div>
+      <div class="secondary-grid">
+        <div class="secondary-card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <h4>Hearing Test (Assessment)</h4>
+          <p>Conducted by a trained hearing healthcare professional using gold-standard pure-tone audiometry. Includes a fully explained report.</p>
+          <span class="more">Book →</span>
+        </div>
+        <div class="secondary-card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg></div>
+          <h4>Tinnitus Management</h4>
+          <p>Tailored strategies including hearing aids, tinnitus retraining therapy, sound therapy, mindfulness, and cognitive behaviour therapy.</p>
+          <span class="more">Book →</span>
+        </div>
+        <div class="secondary-card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h4>Aural Rehabilitation &amp; Communication Strategies</h4>
+          <p>Goal-based coaching that empowers you to navigate everyday hearing situations with greater clarity and confidence.</p>
+          <span class="more">Book →</span>
+        </div>
+        <div class="secondary-card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h4>Education Seminars &amp; Talks</h4>
+          <p>Workplace, community, and corporate seminars raising awareness on hearing health and the importance of hearing protection.</p>
+          <span class="more">Enquire →</span>
+        </div>
+        <div class="secondary-card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h4>Hearing Aids Reprogramming</h4>
+          <p>For Signia, Phonak, Starkey and ReSound devices purchased from other practices — 1 hour, S$300.</p>
+          <span class="more">Book →</span>
+        </div>
+        <div class="secondary-card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h4>Real Ear Measurement</h4>
+          <p>The gold standard in hearing aid fitting verification — ensures your devices are programmed precisely to your ear anatomy.</p>
+          <span class="more">Learn →</span>
+        </div>
+        <div class="secondary-card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-7.35 16.76L12 22l7.35-3.24A10 10 0 0 0 12 2z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h4>Custom Ear Impressions</h4>
+          <p>For custom in-ear monitors (IEMs), earplugs, and hearing aid moulds. 30-minute appointment, S$50 per ear.</p>
+          <span class="more">Book →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Process -->
+  <div class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">What to expect</div>
+        <h2>Your first visit, in four steps</h2>
+      </div>
+      <div class="signs-grid" style="grid-template-columns:repeat(4,1fr);">
+        <div class="sign-row" style="background:var(--cream);">
+          <div class="num">1</div>
+          <div><h4>Friendly intake</h4><p>We listen to what brought you in — no jargon, no rush.</p></div>
+        </div>
+        <div class="sign-row" style="background:var(--cream);">
+          <div class="num">2</div>
+          <div><h4>Otoscope camera</h4><p>We look inside your ear and show you on screen.</p></div>
+        </div>
+        <div class="sign-row" style="background:var(--cream);">
+          <div class="num">3</div>
+          <div><h4>Diagnostic test</h4><p>Audiometry in a sound-treated room. Painless, around 30 mins.</p></div>
+        </div>
+        <div class="sign-row" style="background:var(--cream);">
+          <div class="num">4</div>
+          <div><h4>Honest options</h4><p>We walk you through results — and only what helps. Take the report home.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="content">
+          <h2>Not sure which service you need?</h2>
+          <p>Tell us what's going on — we'll help you figure it out, no commitment.</p>
+        </div>
+        <div class="actions">
+          <a href="#" class="btn btn-primary" data-link="contact">Send an enquiry</a>
+          <a href="#" class="btn btn-whatsapp">WhatsApp us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================
+     PAGE: ABOUT
+     ============================================================ -->
+<section class="page" data-page="about">
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" data-link="home">Home</a> &nbsp;/&nbsp; About</div>
+      <h1>Independent. Clinical. Long-term.</h1>
+      <p class="lede">An independent Singapore hearing clinic led by qualified audiologists, with a focus on clinical care, clear explanation, and lifetime support.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-img"></div>
+        <div class="story-content">
+          <div class="eyebrow">Who we are</div>
+          <h2>Hearing care, the way it should be</h2>
+          <p class="lede">The Hearing Room Singapore is led by a dedicated team of qualified hearing care professionals and audiologists with extensive clinical experience.</p>
+          <p style="margin-top:16px;color:var(--charcoal-soft);">Our mission is to help individuals with hearing loss rediscover the joy of hearing and enjoy a better quality of life through professionally fitted hearing aids and exceptional, personalised long-term hearing care. As an independent clinic, we work with three trusted partner brands — Signia, ReSound GN, and Phonak — selected for their technology, performance, and ongoing support.</p>
+          <div class="story-quote">
+            "We take time to listen to your concerns, explain your hearing condition clearly, and guide you at a comfortable pace."
+            <span class="who">— Kenny Tan, Senior Audiologist</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team -->
+  <div class="section cream">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Meet the team</div>
+        <h2>The people behind every appointment</h2>
+        <p class="lede">The audiologist who sees you at your first appointment is the one who guides you through every visit — fitting, follow-up, adjustments, and beyond.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-photo t-1"><div class="silhouette"></div></div>
+          <div class="team-info">
+            <h4>Kenny Tan</h4>
+            <div class="team-credentials">Senior Audiologist · MSc Audiology</div>
+            <p class="team-bio">15+ years of clinical experience fitting hearing aids and managing complex cases. Specialises in patient-centred consultations and lifetime aftercare. Frequently cited by name in patient reviews.</p>
+            <div class="team-langs"><strong>Speaks:</strong> English, Mandarin, Hokkien</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo t-2"><div class="silhouette"></div></div>
+          <div class="team-info">
+            <h4>Dr Luke Tan</h4>
+            <div class="team-credentials">Lead Clinician · ENT Specialist</div>
+            <p class="team-bio">Oversees clinical protocols, micro-suction earwax removal, and complex otology cases. Holds advanced training in otoscopy and ear health management.</p>
+            <div class="team-langs"><strong>Speaks:</strong> English, Mandarin</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo t-3"><div class="silhouette"></div></div>
+          <div class="team-info">
+            <h4>Audiology Team</h4>
+            <div class="team-credentials">Qualified Hearing Care Professionals</div>
+            <p class="team-bio">Audiologists and clinical support staff trained to the same patient-first standards. The full team enables same-week appointments and continuity of care across visits.</p>
+            <div class="team-langs"><strong>Speaks:</strong> English, Mandarin, Malay, Tamil</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clinic -->
+  <div class="section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-content">
+          <div class="eyebrow">The clinic</div>
+          <h2>A calm, accessible space in the heart of City Hall</h2>
+          <p class="lede">Located on the third floor of The Adelphi — two minutes from City Hall MRT, with basement parking and lift access. Designed to feel like a quiet consultation room, not a retail showroom.</p>
+          <ul style="margin-top:24px;display:grid;gap:12px;">
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--charcoal-soft);"><span style="width:6px;height:6px;border-radius:50%;background:var(--orange);margin-top:10px;flex-shrink:0;"></span>Sound-treated diagnostic room for accurate audiometry</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--charcoal-soft);"><span style="width:6px;height:6px;border-radius:50%;background:var(--orange);margin-top:10px;flex-shrink:0;"></span>High-resolution otoscope camera for live ear visualisation</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--charcoal-soft);"><span style="width:6px;height:6px;border-radius:50%;background:var(--orange);margin-top:10px;flex-shrink:0;"></span>Wheelchair-friendly access from lift to consultation</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--charcoal-soft);"><span style="width:6px;height:6px;border-radius:50%;background:var(--orange);margin-top:10px;flex-shrink:0;"></span>Fitting rooms calibrated for Real-Ear Measurement</li>
+          </ul>
+        </div>
+        <div class="story-img alt"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="content">
+          <h2>Come visit us at The Adelphi.</h2>
+          <p>Same-week appointments available. Or just send us a question on WhatsApp first.</p>
+        </div>
+        <div class="actions">
+          <a href="#" class="btn btn-primary" data-link="contact">Book a Hearing Test</a>
+          <a href="#" class="btn btn-whatsapp">WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================
+     PAGE: HEARING LOSS INFO
+     ============================================================ -->
+<section class="page" data-page="hearing-loss">
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" data-link="home">Home</a> &nbsp;/&nbsp; Hearing Loss Info</div>
+      <h1>Understanding hearing loss</h1>
+      <p class="lede">Plain-English answers to the questions our patients (and their adult children) ask most. No jargon. No selling.</p>
+    </div>
+  </div>
+
+  <!-- Signs -->
+  <div class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Signs to look for</div>
+        <h2>Eight everyday signs of hearing loss</h2>
+        <p class="lede">If three or more of these sound familiar — for you, or for someone you care for — it's worth a 30-minute hearing assessment.</p>
+      </div>
+      <div class="signs-grid">
+        <div class="sign-row"><div class="num">1</div><div><h4>Turning the TV up</h4><p>Family members complain it's too loud, but you say it sounds fine.</p></div></div>
+        <div class="sign-row"><div class="num">2</div><div><h4>"Sorry, what?"</h4><p>You ask people to repeat themselves often, especially in groups.</p></div></div>
+        <div class="sign-row"><div class="num">3</div><div><h4>Restaurants are exhausting</h4><p>Background noise makes it hard to follow conversations.</p></div></div>
+        <div class="sign-row"><div class="num">4</div><div><h4>Phone calls are harder</h4><p>You miss words, especially on speakerphone or with unfamiliar voices.</p></div></div>
+        <div class="sign-row"><div class="num">5</div><div><h4>Ringing in your ears</h4><p>Persistent buzzing or ringing — especially in quiet rooms.</p></div></div>
+        <div class="sign-row"><div class="num">6</div><div><h4>Mumbling everywhere</h4><p>It feels like everyone around you has started to mumble.</p></div></div>
+        <div class="sign-row"><div class="num">7</div><div><h4>Avoiding social events</h4><p>You skip dinners or gatherings because following the conversation feels too hard.</p></div></div>
+        <div class="sign-row"><div class="num">8</div><div><h4>Feeling tired after talking</h4><p>"Listening fatigue" — your brain is working overtime to fill in the gaps.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Types -->
+  <div class="section cream">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Types of hearing loss</div>
+        <h2>Three categories — and why it matters which one you have</h2>
+      </div>
+      <div class="types-grid">
+        <div class="type-card">
+          <span class="badge">Most common</span>
+          <h4>Sensorineural</h4>
+          <p>Damage to the inner ear or auditory nerve. Usually permanent. Caused by ageing, noise exposure, genetics, or some medications.</p>
+          <ul>
+            <li>Treated with hearing aids or cochlear implants</li>
+            <li>Often gradual and bilateral</li>
+            <li>Most common in adults over 60</li>
+          </ul>
+        </div>
+        <div class="type-card">
+          <span class="badge">Often reversible</span>
+          <h4>Conductive</h4>
+          <p>Sound can't reach the inner ear due to a blockage or middle-ear issue. Often treatable — sometimes resolved in a single visit.</p>
+          <ul>
+            <li>Caused by earwax, fluid, or infection</li>
+            <li>Can also be due to bone or eardrum issues</li>
+            <li>Treated with cleaning, medication, or sometimes surgery</li>
+          </ul>
+        </div>
+        <div class="type-card">
+          <span class="badge">Combined</span>
+          <h4>Mixed</h4>
+          <p>A combination of sensorineural and conductive components. Treatment depends on which is dominant.</p>
+          <ul>
+            <li>Often needs both medical and amplification approach</li>
+            <li>We'll identify both during a full hearing assessment</li>
+            <li>Common in older adults with multiple ear issues</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Health impact -->
+  <div class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Why it matters</div>
+        <h2>The health risks of untreated hearing loss</h2>
+        <p class="lede">Hearing loss isn't just a quality-of-life issue. Recent clinical research has linked it to some of the most serious health risks facing older adults.</p>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <div class="proof-num">2–5×</div>
+          <div class="proof-label">Higher dementia risk</div>
+          <div class="proof-desc">Mid-life hearing loss is the largest modifiable risk factor for dementia, accounting for an estimated 8% of all cases.</div>
+          <div class="proof-cite">— Lancet Commission, 2020</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-num">3×</div>
+          <div class="proof-label">Higher risk of falls</div>
+          <div class="proof-desc">Even a mild 25-decibel loss triples the risk of a fall — every additional 10dB nearly doubles it again.</div>
+          <div class="proof-cite">— Johns Hopkins Medicine</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-num">+50%</div>
+          <div class="proof-label">Higher depression risk</div>
+          <div class="proof-desc">Adults with untreated hearing loss are 50% more likely to experience clinical depression and social withdrawal.</div>
+          <div class="proof-cite">— National Council on Aging</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Caregiver block -->
+  <div class="section caregiver">
+    <div class="container">
+      <div class="caregiver-grid">
+        <div>
+          <div class="eyebrow on-dark">For caregivers</div>
+          <h2>Your parent isn't being stubborn — they probably can't hear you.</h2>
+          <p class="lede">Many seniors don't recognise how much they're missing. Bringing a parent or loved one in for an unhurried hearing assessment is one of the most impactful steps you can take for their long-term cognitive and social health.</p>
+          <div class="caregiver-cta">
+            <a href="#" class="btn btn-primary">Get our Caregiver's Guide</a>
+            <a href="#" class="btn btn-secondary on-dark">Speak to an audiologist</a>
+          </div>
+        </div>
+        <div class="caregiver-signs">
+          <div class="sign-card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Don't argue about the volume</h4><p>It's not stubbornness — their brain is genuinely missing the signal.</p></div></div>
+          <div class="sign-card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Frame it as cognitive health</h4><p>Many seniors who refuse "hearing aids" will agree to a "dementia screening."</p></div></div>
+          <div class="sign-card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Come with them</h4><p>Two pairs of ears at the appointment — easier for them to absorb the explanation.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="content">
+          <h2>Have a specific question?</h2>
+          <p>Send it on WhatsApp — a real audiologist will reply, often within an hour.</p>
+        </div>
+        <div class="actions">
+          <a href="#" class="btn btn-whatsapp">WhatsApp us</a>
+          <a href="#" class="btn btn-secondary on-dark" data-link="faq">Browse FAQ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================
+     PAGE: FAQ
+     ============================================================ -->
+<section class="page" data-page="faq">
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" data-link="home">Home</a> &nbsp;/&nbsp; FAQ</div>
+      <h1>Frequently asked questions</h1>
+      <p class="lede">The questions we're asked most often, by patients and caregivers. Can't find yours? WhatsApp us — a real audiologist will reply.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="faq-tabs" id="faqTabs">
+        <button class="faq-tab active" data-faq="general">General</button>
+        <button class="faq-tab" data-faq="aids">Hearing Aids</button>
+        <button class="faq-tab" data-faq="earwax">Earwax Removal</button>
+        <button class="faq-tab" data-faq="pricing">Pricing</button>
+        <button class="faq-tab" data-faq="visiting">Visiting Us</button>
+      </div>
+
+      <!-- General -->
+      <div class="faq-list active" data-faq="general">
+        <div class="faq-item"><div class="faq-q">Do I need a referral to book a hearing test?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">No referral is required. You can book directly with us by form, WhatsApp, or phone. Same-week appointments are usually available.</div></div>
+        <div class="faq-item"><div class="faq-q">How long does a hearing test take?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">A standard diagnostic hearing assessment takes 45–60 minutes including the consultation, otoscopy, audiometry, and a full results discussion. You'll leave with a printed report you can share with your GP.</div></div>
+        <div class="faq-item"><div class="faq-q">Is the test painful or invasive?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">Not at all. You'll listen to a series of soft tones through headphones in a sound-treated room and respond when you hear them. The hardest part is sitting still.</div></div>
+        <div class="faq-item"><div class="faq-q">Do you take walk-ins?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">We strongly prefer appointments so we can give you our full attention. WhatsApp us and we'll usually fit you in the same week — often the same day for earwax removal.</div></div>
+      </div>
+
+      <!-- Aids -->
+      <div class="faq-list" data-faq="aids">
+        <div class="faq-item"><div class="faq-q">Which hearing aid brands do you fit?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">We work with three trusted partner brands — Signia, ReSound GN, and Phonak — selected for the latest technology, performance, and ongoing support. Recommendations are made based on your hearing assessment and lifestyle requirements.</div></div>
+        <div class="faq-item"><div class="faq-q">What does the Hearing Aids Evaluation involve?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">A 1.5-hour pre-fitting consultation that reviews your hearing assessment, listening environments, and lifestyle. The S$100 fee is refundable if hearing aids are purchased within 30 days of evaluation.</div></div>
+        <div class="faq-item"><div class="faq-q">Do you offer Real Ear Measurement?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">Yes — Real Ear Measurement is the gold standard in hearing aid fitting verification, and is included as standard with every hearing aid fitting at The Hearing Room.</div></div>
+        <div class="faq-item"><div class="faq-q">Can you reprogram hearing aids purchased elsewhere?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">Yes. Our reprogramming service supports Signia, Phonak, Starkey, and ReSound devices purchased from other practices. The 1-hour service is S$300.</div></div>
+        <div class="faq-item"><div class="faq-q">How long does it take to adjust to hearing aids?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">Most patients adjust within 2–4 weeks of consistent daily wear. We provide constant support and regular follow-ups to ensure your hearing aids are optimised throughout the adjustment period.</div></div>
+      </div>
+
+      <!-- Earwax -->
+      <div class="faq-list" data-faq="earwax">
+        <div class="faq-item"><div class="faq-q">Is earwax removal safe?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">Yes. The procedure is performed by a trained clinician under direct otoscopic visualisation, using a safe, non-invasive irrigation technique. It is significantly safer than self-cleaning with cotton buds.</div></div>
+        <div class="faq-item"><div class="faq-q">Will it hurt?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">No. The procedure is painless, and most appointments are completed in 20 minutes.</div></div>
+        <div class="faq-item"><div class="faq-q">How often should I have my ears cleaned?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">For most healthy ears, only when symptoms appear — for example, a blocked feeling, hearing loss, or tinnitus. Hearing aid wearers usually benefit from a clean every 6 to 12 months as preventive maintenance.</div></div>
+        <div class="faq-item"><div class="faq-q">Can I use cotton buds at home?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">We do not recommend it. Cotton buds tend to push wax further into the ear canal and can damage the eardrum. The ear is naturally self-cleaning — if wax is causing symptoms, please come in for an assessment.</div></div>
+        <div class="faq-item"><div class="faq-q">What does the S$100 fee cover?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">The S$100 earwax removal fee includes the S$25 otoscopy and consultation fee, the procedure itself, and a post-procedure review. The full appointment is approximately 20 minutes.</div></div>
+      </div>
+
+      <!-- Pricing -->
+      <div class="faq-list" data-faq="pricing">
+        <div class="faq-item"><div class="faq-q">Why do you charge for hearing services?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">Our published fees reflect the time, training, and clinical equipment involved in each appointment. They allow each consultation to remain a comprehensive clinical service, with the audiologist's full attention and a printed report regardless of outcome.</div></div>
+        <div class="faq-item"><div class="faq-q">Is the Hearing Aids Evaluation refundable?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">Yes — the S$100 evaluation fee is fully refundable if hearing aids are subsequently purchased within 30 days of the evaluation.</div></div>
+        <div class="faq-item"><div class="faq-q">Do you accept Medisave or insurance?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">Hearing aids are not currently Medisave-claimable in Singapore for most patients. Some private insurance plans may cover diagnostic services — we can provide an itemised receipt for claims. We recommend checking with your insurer first.</div></div>
+        <div class="faq-item"><div class="faq-q">Are payment plans available for hearing aids?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">Yes. We offer 0% interest instalment plans through major credit cards. Please ask us during your fitting consultation.</div></div>
+      </div>
+
+      <!-- Visiting -->
+      <div class="faq-list" data-faq="visiting">
+        <div class="faq-item"><div class="faq-q">Where exactly are you located?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">1 Coleman Street, #03-21 The Adelphi, Singapore 179803. Two minutes' walk from City Hall MRT (Exit B or D).</div></div>
+        <div class="faq-item"><div class="faq-q">Is there parking?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">Yes — basement parking at The Adelphi. Take the lift to L3 and we're at unit #03-21.</div></div>
+        <div class="faq-item"><div class="faq-q">Is the clinic wheelchair-accessible?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">Yes. Lift access from the basement carpark and ground floor. The consultation rooms are designed for wheelchair access.</div></div>
+        <div class="faq-item"><div class="faq-q">Can a family member sit in with me?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a">Absolutely — we encourage it. Two sets of ears in the consultation room helps you remember everything we discuss.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="content">
+          <h2>Still have a question?</h2>
+          <p>WhatsApp us — a real audiologist replies (usually within the hour during clinic hours).</p>
+        </div>
+        <div class="actions">
+          <a href="#" class="btn btn-whatsapp">WhatsApp us</a>
+          <a href="#" class="btn btn-secondary on-dark" data-link="contact">Send an enquiry</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================
+     PAGE: CONTACT
+     ============================================================ -->
+<section class="page" data-page="contact">
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" data-link="home">Home</a> &nbsp;/&nbsp; Contact</div>
+      <h1>Get in touch</h1>
+      <p class="lede">Send a quick enquiry, message us on WhatsApp, or just drop in. We'll do our best to reply within one business hour.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you — we will be in touch within one business hour.');">
+          <h3 style="margin-bottom:6px;color:var(--teal-900);">Send us an enquiry</h3>
+          <p style="color:var(--gray-500);font-size:14px;margin-bottom:24px;">Fill this in and we'll reply by email or phone — whichever you prefer.</p>
+          <div class="form-row split">
+            <div><label>First name</label><input type="text" required placeholder="Your name" /></div>
+            <div><label>Last name</label><input type="text" placeholder="Optional" /></div>
+          </div>
+          <div class="form-row split">
+            <div><label>Phone</label><input type="tel" required placeholder="+65 ..." /></div>
+            <div><label>Email</label><input type="email" placeholder="you@example.com" /></div>
+          </div>
+          <div class="form-row">
+            <label>What service are you interested in?</label>
+            <select>
+              <option>Hearing Test / Assessment</option>
+              <option>Hearing Aids</option>
+              <option>Earwax Removal</option>
+              <option>Tinnitus Management</option>
+              <option>Caregiver enquiry — for a parent</option>
+              <option>Other / not sure</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label>Tell us briefly what's going on</label>
+            <textarea placeholder="e.g., 'My father has been turning the TV up — I'd like to bring him in for a hearing assessment.'"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send enquiry</button>
+          <p class="privacy">By submitting, you agree to be contacted by The Hearing Room. We never share your details.</p>
+        </form>
+
+        <div class="contact-aside">
+          <div class="contact-card">
+            <h4><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Visit us</h4>
+            <div class="contact-detail"><div><strong>The Hearing Room</strong><br/>1 Coleman Street, #03-21<br/>The Adelphi, Singapore 179803</div></div>
+            <div class="contact-detail" style="margin-top:14px;"><div><strong>Hours</strong><br/>Mon–Fri 10am–6pm<br/>Sat 9am–5pm · Sun &amp; PH closed</div></div>
+          </div>
+          <div class="contact-card">
+            <h4><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> Speak to us</h4>
+            <div class="contact-detail"><strong>Phone:</strong> <a href="tel:+6569046077" style="color:var(--teal-700);">+65 6904 6077</a></div>
+            <div class="contact-detail"><strong>WhatsApp:</strong> <a href="#" style="color:var(--teal-700);">+65 9726 0919</a></div>
+            <div class="contact-detail"><strong>Email:</strong> <a href="mailto:enquiry@thehearingroom.com.sg" style="color:var(--teal-700);">enquiry@thehearingroom.com.sg</a></div>
+            <a href="#" class="btn btn-whatsapp" style="margin-top:12px;width:100%;justify-content:center;">WhatsApp us now</a>
+          </div>
+          <div class="map-card"><div class="pin"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div></div>
+          <div class="contact-card">
+            <h4>How to find us</h4>
+            <div class="directions-tabs" id="dirTabs">
+              <div class="dir-tab active" data-dir="mrt">MRT</div>
+              <div class="dir-tab" data-dir="car">Car</div>
+              <div class="dir-tab" data-dir="bus">Bus</div>
+            </div>
+            <div class="dir-content active" data-dir="mrt">City Hall MRT (EW13 / NS25), Exit B or D. Walk 200m towards the National Gallery — The Adelphi is on your right.</div>
+            <div class="dir-content" data-dir="car">Basement parking at The Adelphi. Take the lift to Level 3, turn right — we're at #03-21.</div>
+            <div class="dir-content" data-dir="bus">Multiple bus stops on North Bridge Road and Stamford Road. Stops served by 7, 14, 16, 36, 77, 124, 131, 162, 167, 174, 700A.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================
+     PAGE: PRICING
+     ============================================================ -->
+<section class="page" data-page="pricing">
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" data-link="home">Home</a> &nbsp;/&nbsp; Pricing</div>
+      <h1>Transparent pricing, no surprises</h1>
+      <p class="lede">Honest fees, published openly. We charge for hearing tests so the test itself can be diagnostic — not a sales pitch for hearing aids.</p>
+    </div>
+  </div>
+
+  <!-- Professional services pricing -->
+  <div class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Professional services</div>
+        <h2>Transparent service fees</h2>
+        <p class="lede">Published fees for our most-booked clinical services. All assessments include a fully explained report you can share with your GP or insurer.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="tier-name">Hearing Aids Evaluation</div>
+          <div class="tier-desc">Pre-fitting consultation and assessment.</div>
+          <div class="price-amount"><span class="currency">S$</span><span class="number">100</span></div>
+          <ul class="price-includes">
+            <li>1 hour 30 minute appointment</li>
+            <li>Refundable if hearing aids are purchased within 30 days</li>
+            <li>Includes lifestyle and listening environment review</li>
+            <li>Discussion of suitable Signia / ReSound GN / Phonak options</li>
+          </ul>
+          <a href="#" class="btn btn-secondary">Book Evaluation</a>
+        </div>
+        <div class="price-card featured">
+          <div class="tier-name">Earwax Removal</div>
+          <div class="tier-desc">Safe, non-invasive earwax removal.</div>
+          <div class="price-amount"><span class="currency">S$</span><span class="number">100</span></div>
+          <ul class="price-includes">
+            <li>20-minute appointment</li>
+            <li>Includes S$25 otoscopy &amp; consultation fee</li>
+            <li>Safe, non-invasive irrigation technique</li>
+            <li>Same-day appointments often available</li>
+          </ul>
+          <a href="#" class="btn btn-primary">Book Online</a>
+        </div>
+        <div class="price-card">
+          <div class="tier-name">Hearing Aids Reprogramming</div>
+          <div class="tier-desc">For devices purchased elsewhere.</div>
+          <div class="price-amount"><span class="currency">S$</span><span class="number">300</span></div>
+          <ul class="price-includes">
+            <li>1 hour appointment</li>
+            <li>Compatible: Signia, Phonak, Starkey, ReSound</li>
+            <li>Real Ear Measurement verification</li>
+            <li>Post-programming fine-tuning included</li>
+          </ul>
+          <a href="#" class="btn btn-secondary">Book Service</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Specialty pricing -->
+  <div class="section cream">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Specialty services</div>
+        <h2>Custom impressions &amp; verification</h2>
+      </div>
+      <div class="pricing-grid" style="grid-template-columns:1fr 1fr;max-width:780px;margin:0 auto;">
+        <div class="price-card">
+          <div class="tier-name">Custom Ear Impressions</div>
+          <div class="tier-desc">For IEMs, earplugs, and ear moulds.</div>
+          <div class="price-amount"><span class="currency">S$</span><span class="number">50</span><span class="duration">per ear</span></div>
+          <ul class="price-includes">
+            <li>30-minute appointment</li>
+            <li>Suitable for custom in-ear monitors (IEMs)</li>
+            <li>Custom-fit earplugs for noise protection</li>
+            <li>Hearing aid earmoulds</li>
+          </ul>
+          <a href="#" class="btn btn-secondary">Book Impression</a>
+        </div>
+        <div class="price-card featured">
+          <div class="tier-name">Real Ear Measurement</div>
+          <div class="tier-desc">Gold-standard hearing aid fitting verification.</div>
+          <div class="price-amount"><span class="currency" style="font-size:18px;">Included</span></div>
+          <ul class="price-includes">
+            <li>Standard with every hearing aid fitting</li>
+            <li>Verifies the device performs to prescription</li>
+            <li>Calibrated to your unique ear anatomy</li>
+            <li>The audiological gold standard worldwide</li>
+          </ul>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hearing aids -->
+  <div class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Hearing aids</div>
+        <h2>Three technology levels across three trusted brands</h2>
+        <p class="lede">Hearing aid pricing reflects the level of sound-processing technology. We discuss your hearing profile, lifestyle, and budget at your fitting consultation, and recommend the device most appropriate for your needs.</p>
+      </div>
+      <div class="aid-tier-grid">
+        <div class="aid-tier">
+          <span class="lvl">Essential</span>
+          <h4>Reliable everyday hearing</h4>
+          <div class="from"><strong>From S$2,500</strong> per ear</div>
+          <ul>
+            <li>Suitable for quieter listening environments</li>
+            <li>Noise reduction in quiet settings</li>
+            <li>Reliable for one-on-one conversation</li>
+            <li>Standard sound processing</li>
+          </ul>
+        </div>
+        <div class="aid-tier">
+          <span class="lvl mid">Advanced</span>
+          <h4>Active lifestyles, busier environments</h4>
+          <div class="from"><strong>From S$4,500</strong> per ear</div>
+          <ul>
+            <li>Multi-channel sound processing</li>
+            <li>Directional microphones</li>
+            <li>Bluetooth phone &amp; TV streaming</li>
+            <li>Smartphone app control</li>
+          </ul>
+        </div>
+        <div class="aid-tier">
+          <span class="lvl prem">Premium</span>
+          <h4>Best-in-class clarity in every situation</h4>
+          <div class="from"><strong>From S$7,500</strong> per ear</div>
+          <ul>
+            <li>AI-driven sound processing</li>
+            <li>Automatic environment detection</li>
+            <li>Restaurant &amp; group conversation modes</li>
+            <li>Rechargeable, full-day battery</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About our fees -->
+  <div class="section">
+    <div class="container">
+      <div class="why-charge">
+        <div class="badge-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div>
+          <h3>About our service fees</h3>
+          <p>Our service fees reflect the time, training, and clinical equipment involved in each appointment. The Hearing Aids Evaluation fee is fully refundable when hearing aids are subsequently purchased, and every hearing aid fitting includes Real Ear Measurement verification, ongoing follow-ups, and aural rehabilitation support.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="content">
+          <h2>Book an assessment with our team</h2>
+          <p>Same-week appointments are usually available. Printed report included.</p>
+        </div>
+        <div class="actions">
+          <a href="#" class="btn btn-primary" data-link="contact">Book now</a>
+          <a href="#" class="btn btn-whatsapp">WhatsApp first</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <svg class="logo-mark" viewBox="0 0 64 64" fill="none">
+            <path d="M44 12c-8 0-14 6-14 14 0 6 4 8 4 14 0 4-3 6-7 6-3 0-6-2-6-6" stroke="#7FC9C7" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M38 22c0-3 3-6 6-6s6 3 6 6-3 6-6 6c-2 0-3 1-3 3 0 3 3 4 3 7" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <circle cx="44" cy="22" r="2" fill="#FFFFFF"/>
+          </svg>
+          <div class="logo-text">
+            <span class="l1">the hearing room.</span>
+            <span class="l2">real life solutions</span>
+          </div>
+        </div>
+        <p>An independent Singapore hearing clinic at The Adelphi, City Hall. Personalised hearing care for every stage of life.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487 1.794.775 2.502.842 3.404.708.55-.082 1.704-.696 1.945-1.37.241-.674.241-1.252.169-1.371-.073-.118-.27-.19-.566-.336"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="#" data-link="home">Home</a></li>
+          <li><a href="#" data-link="about">About</a></li>
+          <li><a href="#" data-link="services">Services</a></li>
+          <li><a href="#" data-link="hearing-loss">Hearing Loss Info</a></li>
+          <li><a href="#" data-link="pricing">Pricing</a></li>
+          <li><a href="#" data-link="faq">FAQ</a></li>
+          <li><a href="#" data-link="contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Hearing Aids</a></li>
+          <li><a href="#">Earwax Removal</a></li>
+          <li><a href="#">Hearing Test (Assessment)</a></li>
+          <li><a href="#">Tinnitus Management</a></li>
+          <li><a href="#">Aural Rehabilitation</a></li>
+          <li><a href="#">Education Talks</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Visit us</h4>
+        <div class="footer-contact-item"><strong>The Hearing Room</strong><br/>1 Coleman Street, #03-21<br/>The Adelphi, Singapore 179803</div>
+        <div class="footer-contact-item"><strong>+65 6904 6077</strong></div>
+        <div class="footer-contact-item">enquiry@thehearingroom.com.sg</div>
+        <div class="footer-contact-item">Mon–Fri 10am–6pm<br/>Sat 9am–5pm</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 The Hearing Room Pte Ltd. All rights reserved.</div>
+      <div>Privacy Policy &nbsp;·&nbsp; Terms &nbsp;·&nbsp; Sitemap</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="#" class="whatsapp-float" aria-label="WhatsApp us">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487 1.794.775 2.502.842 3.404.708.55-.082 1.704-.696 1.945-1.37.241-.674.241-1.252.169-1.371-.073-.118-.27-.19-.566-.336m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.885 3.488"/></svg>
+</a>
+
+<!-- Mobile sticky CTA bar -->
+<div class="mobile-cta-bar">
+  <a href="#" class="btn btn-whatsapp">WhatsApp</a>
+  <a href="#" class="btn btn-primary" data-link="contact">Book Test</a>
+</div>
+
+<script>
+// =========================================================
+// Page switcher
+// =========================================================
+(function(){
+  const pages = document.querySelectorAll('.page');
+  const navLinks = document.querySelectorAll('[data-link]');
+  const drawer = document.getElementById('drawer');
+
+  function go(target){
+    pages.forEach(p => p.classList.toggle('active', p.dataset.page === target));
+    document.querySelectorAll('.nav-main a, .drawer .nav-link').forEach(a => {
+      a.classList.toggle('active', a.dataset.link === target);
+    });
+    window.scrollTo({top:0, behavior:'instant'});
+    if (drawer) drawer.classList.remove('open');
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      const target = link.dataset.link;
+      if (target){
+        e.preventDefault();
+        go(target);
+      }
+    });
+  });
+})();
+
+// Mobile drawer
+(function(){
+  const drawer = document.getElementById('drawer');
+  const open = document.getElementById('menuToggle');
+  const close = document.getElementById('drawerClose');
+  if (open) open.addEventListener('click', () => drawer.classList.add('open'));
+  if (close) close.addEventListener('click', () => drawer.classList.remove('open'));
+  drawer && drawer.addEventListener('click', e => { if (e.target === drawer) drawer.classList.remove('open'); });
+})();
+
+// FAQ tabs + accordion
+(function(){
+  document.querySelectorAll('.faq-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.faq;
+      document.querySelectorAll('.faq-tab').forEach(t => t.classList.toggle('active', t === tab));
+      document.querySelectorAll('.faq-list').forEach(l => l.classList.toggle('active', l.dataset.faq === target));
+    });
+  });
+  document.addEventListener('click', e => {
+    const q = e.target.closest('.faq-q');
+    if (!q) return;
+    const item = q.parentElement;
+    item.classList.toggle('open');
+  });
+})();
+
+// Direction tabs
+(function(){
+  document.querySelectorAll('.dir-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.dir;
+      document.querySelectorAll('.dir-tab').forEach(t => t.classList.toggle('active', t === tab));
+      document.querySelectorAll('.dir-content').forEach(c => c.classList.toggle('active', c.dataset.dir === target));
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
