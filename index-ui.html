@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Hearing Room — Independent Hearing Clinic, Singapore</title>
-<meta name="description" content="An independent Singapore hearing clinic offering hearing assessments, professionally fitted hearing aids, earwax removal, and tinnitus management at The Adelphi." />
+<title>The Hearing Room — Hearing Clinic, Singapore</title>
+<meta name="description" content="A Singapore hearing clinic offering hearing assessments, professionally fitted hearing aids, earwax removal, and tinnitus management at The Adelphi." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -529,12 +529,30 @@ h4{font-size:18px;font-weight:600;}
 .compare-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center;}
 .compare-img{
   height:480px;border-radius:var(--radius-lg);overflow:hidden;
-  background:linear-gradient(135deg,var(--teal-700),var(--teal-300));
+  background:
+    linear-gradient(135deg,rgba(14,79,79,.55),rgba(14,79,79,.15)),
+    linear-gradient(135deg,#2a3a3a,#5a6a6a);
   position:relative;
 }
-.compare-img::after{
+.compare-img::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.18),transparent 50%);
+  background:
+    radial-gradient(circle at 25% 35%, rgba(255,255,255,.18) 0%, transparent 30%),
+    radial-gradient(circle at 70% 75%, rgba(255,255,255,.08) 0%, transparent 35%);
+}
+.compare-img::after{
+  content:'';position:absolute;left:18%;top:30%;
+  width:64%;height:48%;
+  background:rgba(247,244,238,.92);
+  border-radius:6px;
+  box-shadow:0 12px 32px rgba(0,0,0,.25);
+  transform:rotate(-3deg);
+}
+.compare-img-caption{
+  position:absolute;bottom:18px;left:18px;z-index:2;
+  background:rgba(0,0,0,.45);backdrop-filter:blur(6px);
+  color:#fff;font-size:12px;padding:7px 14px;border-radius:6px;
+  letter-spacing:.02em;
 }
 .compare-table{
   background:var(--white);border-radius:var(--radius-lg);overflow:hidden;
@@ -723,6 +741,62 @@ h4{font-size:18px;font-weight:600;}
 .page-hero h1{margin-bottom:18px;}
 .page-hero .lede{margin:0 auto;}
 
+/* ===== Booking module (Timely-style service selector) ===== */
+.booking-module{
+  background:var(--white);border-radius:var(--radius-lg);
+  border:1px solid var(--gray-200);box-shadow:var(--shadow-md);
+  overflow:hidden;max-width:980px;margin:0 auto;
+}
+.booking-header{
+  padding:22px 32px;text-align:center;
+  border-bottom:1px solid var(--gray-100);
+  font-weight:600;font-size:17px;color:var(--charcoal);
+}
+.booking-grid{display:grid;grid-template-columns:1fr 320px;gap:0;}
+.booking-services{padding:28px 32px;}
+.booking-section-label{
+  font-size:14px;font-weight:700;color:var(--charcoal);margin-bottom:10px;
+}
+.booking-service{
+  display:flex;gap:14px;padding:16px 0;
+  border-bottom:1px solid var(--gray-100);cursor:pointer;align-items:flex-start;
+}
+.booking-service:last-child{border-bottom:none;}
+.booking-service input[type="checkbox"]{
+  margin-top:4px;width:18px;height:18px;flex-shrink:0;
+  accent-color:var(--teal-700);cursor:pointer;
+}
+.booking-service-info{flex:1;}
+.booking-service-name{
+  font-size:15px;color:var(--charcoal);line-height:1.4;margin-bottom:4px;
+}
+.booking-service-meta{
+  font-size:13px;color:var(--gray-500);font-style:italic;
+}
+.booking-location{
+  background:var(--cream);padding:28px;border-left:1px solid var(--gray-100);
+}
+.booking-location-card{
+  background:var(--white);border:1px solid var(--gray-200);
+  border-radius:var(--radius-md);padding:20px;
+}
+.booking-location-card .pin-row{display:flex;gap:12px;align-items:flex-start;}
+.booking-location-card .pin-icon{color:var(--teal-700);flex-shrink:0;margin-top:2px;}
+.booking-location-card h4{font-size:16px;color:var(--teal-900);margin-bottom:6px;}
+.booking-location-card .addr{font-size:14px;color:var(--charcoal-soft);line-height:1.55;}
+.booking-continue{
+  background:var(--orange);color:var(--white);
+  padding:18px;text-align:center;font-weight:600;font-size:16px;
+  cursor:pointer;border:none;width:100%;transition:background .2s;
+  display:block;
+}
+.booking-continue:hover{background:var(--orange-dark);}
+@media (max-width:780px){
+  .booking-grid{grid-template-columns:1fr;}
+  .booking-location{border-left:none;border-top:1px solid var(--gray-100);padding:20px;}
+  .booking-services{padding:22px 24px;}
+}
+
 /* ===== Service detail sections (Services page) ===== */
 .service-detail{padding:96px 0;position:relative;}
 .service-detail.cream{background:var(--cream);}
@@ -802,6 +876,81 @@ h4{font-size:18px;font-weight:600;}
   .service-visual{height:280px;}
   .service-visual .ico-bg{width:180px;height:180px;}
 }
+
+/* ===== Official Price List (Pricing page) ===== */
+.price-list{
+  background:var(--white);border-radius:var(--radius-lg);
+  border:1px solid var(--gray-200);box-shadow:var(--shadow-sm);
+  overflow:hidden;max-width:880px;margin:0 auto;
+}
+.price-list-cat{padding:36px 44px;}
+.price-list-cat + .price-list-cat{border-top:1px solid var(--gray-100);}
+.price-list-cat-head{
+  text-align:center;font-size:20px;font-weight:700;
+  color:var(--teal-900);
+  margin-bottom:24px;position:relative;
+  display:flex;align-items:center;justify-content:center;gap:18px;
+  letter-spacing:-.01em;
+}
+.price-list-cat-head::before,.price-list-cat-head::after{
+  content:'';flex:1;height:1px;background:var(--gray-200);max-width:60px;
+}
+.price-list-row{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding:14px 0;border-bottom:1px solid var(--gray-100);gap:24px;
+}
+.price-list-row:last-child{border-bottom:none;}
+.price-list-row .name{font-size:15px;color:var(--charcoal);font-weight:500;flex:1;line-height:1.45;}
+.price-list-row .price{font-size:16px;color:var(--teal-900);font-weight:600;white-space:nowrap;text-align:right;}
+.price-list-subhead{
+  font-size:13px;font-weight:700;color:var(--orange-dark);
+  font-style:italic;margin-top:18px;margin-bottom:4px;
+  letter-spacing:.02em;text-decoration:underline;text-underline-offset:3px;
+}
+.price-list-row.has-bullets{flex-direction:column;align-items:stretch;}
+.price-list-row.has-bullets .top-line{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;}
+.price-list-row.has-bullets .bullets{
+  margin-top:6px;padding-left:0;display:flex;flex-direction:column;gap:3px;
+}
+.price-list-row.has-bullets .bullets li{
+  font-size:13px;color:var(--gray-500);padding-left:14px;position:relative;
+}
+.price-list-row.has-bullets .bullets li::before{
+  content:'·';position:absolute;left:4px;color:var(--orange-dark);font-weight:700;
+}
+.price-list-note{
+  text-align:center;padding:16px;
+  font-size:12px;color:var(--gray-500);font-style:italic;
+  background:var(--cream);border-top:1px solid var(--gray-100);
+}
+@media (max-width:680px){
+  .price-list-cat{padding:24px 22px;}
+  .price-list-row .name{font-size:14px;}
+  .price-list-row .price{font-size:15px;}
+}
+
+/* ===== Story · Vision · Mission pillars (About page) ===== */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.pillar{
+  background:var(--white);border:1px solid var(--gray-200);
+  border-radius:var(--radius-lg);padding:36px 32px;
+  position:relative;transition:all .25s;
+}
+.pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--teal-300);}
+.pillar .pillar-num{
+  position:absolute;top:24px;right:28px;
+  font-size:48px;font-weight:800;color:var(--teal-100);
+  line-height:1;letter-spacing:-.04em;
+}
+.pillar .pillar-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:var(--teal-50);color:var(--teal-700);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:22px;
+}
+.pillar h3{color:var(--teal-900);margin-bottom:12px;font-size:22px;}
+.pillar p{font-size:15px;color:var(--charcoal-soft);line-height:1.65;}
+@media (max-width:880px){.pillars{grid-template-columns:1fr;gap:20px;}}
 
 /* ===== About — story split ===== */
 .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
@@ -1062,7 +1211,7 @@ h4{font-size:18px;font-weight:600;}
             <span><strong>5.0</strong> · 438+ patient reviews on Google</span>
           </div>
           <h1>Personalised hearing care <span class="accent">for every stage of life.</span></h1>
-          <p class="lede">An independent Singapore hearing clinic offering comprehensive diagnostic assessments, professionally fitted hearing aids, and gentle earwax management — delivered by qualified audiologists at The Adelphi.</p>
+          <p class="lede">A Singapore hearing clinic offering comprehensive diagnostic assessments, professionally fitted hearing aids, and gentle earwax management — delivered by qualified audiologists at The Adelphi.</p>
           <div class="btn-row">
             <a href="#" class="btn btn-primary" data-link="contact">Book a Hearing Assessment
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1100,7 +1249,7 @@ h4{font-size:18px;font-weight:600;}
           <div class="hero-img accent">
             <div class="caption">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Independent practice
+              Multi-brand fittings
             </div>
           </div>
           <div class="hero-floating-card">
@@ -1196,40 +1345,40 @@ h4{font-size:18px;font-weight:600;}
     <div class="container">
       <div class="caregiver-grid">
         <div>
-          <div class="eyebrow on-dark">For adult children &amp; caregivers</div>
-          <h2>Worried about <em>your parent's</em> hearing?</h2>
-          <p class="lede">You're not imagining it — and it's not "just getting older." Untreated hearing loss is the single largest modifiable risk factor for dementia in mid-life. The good news: most of it is treatable, and we make it easy to start.</p>
+          <div class="eyebrow on-dark">Common reasons patients visit</div>
+          <h2>What most patients <em>walk in for</em></h2>
+          <p class="lede">Whether it's for yourself or a family member, our patients most often visit for one of three reasons. Each is treated as a clinical service in its own right — with time to ask questions, see what we see, and understand what comes next.</p>
           <div class="caregiver-cta">
-            <a href="#" class="btn btn-primary">Get our free Caregiver's Guide</a>
-            <a href="#" class="btn btn-secondary on-dark">Speak to an audiologist</a>
+            <a href="#" class="btn btn-primary" data-link="contact">Book an Appointment</a>
+            <a href="#" class="btn btn-secondary on-dark">Speak to Our Team</a>
           </div>
         </div>
         <div class="caregiver-signs">
           <div class="sign-card">
             <div class="ico">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
             </div>
             <div>
-              <h4>The TV keeps getting louder</h4>
-              <p>You're constantly asking them to turn it down — they say it sounds "just right."</p>
+              <h4>A sudden, blocked feeling in one ear</h4>
+              <p>Often caused by earwax build-up. Patients describe relief like <em>"my hearing was revived immediately"</em> after camera-guided removal.</p>
             </div>
           </div>
           <div class="sign-card">
             <div class="ico">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             </div>
             <div>
-              <h4>"Sorry, what?" in restaurants</h4>
-              <p>Group conversations, background noise, or phone calls become exhausting — and they start avoiding them.</p>
+              <h4>Wanting clarity on your hearing health</h4>
+              <p>For yourself or a parent. We explain audiograms and recommendations in language you can act on — and answer every question.</p>
             </div>
           </div>
           <div class="sign-card">
             <div class="ico">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 18c0-6 4-10 10-10" transform="scale(0.8) translate(2,2)"/><path d="M2 12c0-5.5 4.5-10 10-10s10 4.5 10 10"/><path d="M6 12a6 6 0 0 1 12 0"/><path d="M12 12a2 2 0 1 0 0 4"/></svg>
             </div>
             <div>
-              <h4>They're withdrawing socially</h4>
-              <p>Skipping family dinners or church groups they used to love. Hearing loss isolates — and isolation accelerates cognitive decline.</p>
+              <h4>Considering hearing aids for the first time</h4>
+              <p>Patients tell us they value the unhurried approach — time to compare options, see the technology, and decide without pressure.</p>
             </div>
           </div>
         </div>
@@ -1424,51 +1573,53 @@ h4{font-size:18px;font-weight:600;}
     </div>
   </div>
 
-  <!-- WHY US -->
+  <!-- WHY US — comparison vs typical chains -->
   <div class="section">
     <div class="container">
       <div class="section-head">
-        <div class="eyebrow">The Hearing Room standard</div>
+        <div class="eyebrow">The Hearing Room difference</div>
         <h2>What sets our practice apart</h2>
-        <p class="lede">An independent clinic grounded in clinical best practice, evidence-based protocols, and patient-centred care.</p>
+        <p class="lede">A clinic grounded in clinical best practice, evidence-based protocols, and patient-centred care.</p>
       </div>
       <div class="compare-wrap">
-        <div class="compare-img"></div>
+        <div class="compare-img">
+          <div class="compare-img-caption">Otoscope-guided examination</div>
+        </div>
         <div class="compare-table">
           <div class="compare-head">
-            <div>What we offer</div>
-            <div class="us">Included <span class="small">As standard</span></div>
-            <div class="them"></div>
+            <div>What you get</div>
+            <div class="us">The Hearing Room <span class="small">Our Practice</span></div>
+            <div class="them">Typical chains</div>
           </div>
           <div class="compare-row">
-            <div class="feature">Independent, multi-brand fittings — Signia · ReSound GN · Phonak</div>
+            <div class="feature">Patient-led consultation, never sales-driven</div>
             <div class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div></div>
+            <div class="x"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
           </div>
           <div class="compare-row">
-            <div class="feature">Real Ear Measurement — gold-standard fitting verification</div>
+            <div class="feature">Trusted hearing aid brands — Signia · ReSound GN · Phonak</div>
             <div class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div></div>
+            <div class="x"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
           </div>
           <div class="compare-row">
-            <div class="feature">Aural rehabilitation and communication strategies</div>
+            <div class="feature">In-house otoscope camera</div>
             <div class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div></div>
+            <div class="x"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
           </div>
           <div class="compare-row">
-            <div class="feature">Constant support and regular follow-ups</div>
+            <div class="feature">Aural rehabilitation included</div>
             <div class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div></div>
+            <div class="x"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
           </div>
           <div class="compare-row">
-            <div class="feature">Wheelchair-accessible clinic at City Hall</div>
+            <div class="feature">Wheelchair-accessible clinic</div>
             <div class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div></div>
+            <div class="x"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
           </div>
           <div class="compare-row">
-            <div class="feature">Transparent published pricing across every service</div>
+            <div class="feature">Transparent published pricing</div>
             <div class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div></div>
+            <div class="x"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
           </div>
         </div>
       </div>
@@ -1549,37 +1700,29 @@ h4{font-size:18px;font-weight:600;}
     </div>
   </div>
 
-  <!-- ====== SERVICE 01 — HEARING AIDS ====== -->
+  <!-- ====== SERVICE 01 — PROFESSIONAL CONSULTATION ====== -->
   <div class="service-detail">
     <div class="container">
       <div class="service-detail-grid">
         <div class="service-visual v1">
           <svg class="ico-bg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 18c0-6 4-10 10-10s10 4 10 10v8c0 4-3 6-3 10 0 4 3 6 3 10 0 5-4 8-9 8h-2"/>
-            <circle cx="32" cy="32" r="4"/>
-            <path d="M44 30c2 0 4-2 4-4s-2-4-4-4"/>
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" transform="translate(12,12) scale(1.4)"/>
           </svg>
-          <div class="image-caption">Hearing aid fitting · The Adelphi</div>
+          <div class="image-caption">Professional clinical consultation</div>
         </div>
         <div class="service-detail-content">
           <span class="service-num">Service 01</span>
-          <span class="priority-pill">Priority Service</span>
-          <h2>Hearing Aids</h2>
-          <p class="lede-text">An extensive range of hearing aids from our trusted partner brands — <strong>Signia, ReSound GN, and Phonak</strong>. We have carefully selected partner brands that we trust to provide the latest technology, performance, and ongoing support.</p>
-          <p class="body-text">Recommendations are based on your hearing assessment and lifestyle requirements. We will be with you throughout your hearing journey so that you can return to the activities you love, with constant support and regular follow-ups to ensure your hearing aids are optimised over time.</p>
-          <div class="price-tag">
-            <span class="label">Hearing Aids Evaluation</span>
-            <span class="value">S$100</span>
-            <span class="extra">· 1.5 hr · refundable on purchase within 30 days</span>
-          </div>
+          <h2>Professional Consultation</h2>
+          <p class="lede-text">An initial conversation with a qualified audiologist to understand your hearing concerns, review your medical history, and identify the appropriate next clinical step.</p>
+          <p class="body-text">Whether you're noticing a recent change in hearing, weighing up hearing aids, or supporting a family member, the consultation is the starting point — unhurried, jargon-free, and grounded in clinical assessment rather than sales pressure.</p>
           <ul class="feature-list">
-            <li>Real-Ear Measurement (REM) — gold-standard fitting verification</li>
-            <li>Aural rehabilitation and communication strategies included</li>
-            <li>Reprogramming available for devices from other practices</li>
-            <li>Custom ear impressions for IEMs, earplugs, and ear moulds</li>
+            <li>Discussion of presenting concerns and medical history</li>
+            <li>Otoscopy with high-resolution camera examination</li>
+            <li>Recommendation of appropriate next steps</li>
+            <li>Clear explanation of what each pathway involves</li>
           </ul>
           <div class="cta-row">
-            <a href="#" class="btn btn-primary" data-link="contact">Book an Evaluation</a>
+            <a href="#" class="btn btn-primary" data-link="contact">Book a Consultation</a>
             <a href="#" class="btn btn-secondary" data-link="pricing">View Pricing</a>
           </div>
         </div>
@@ -1587,7 +1730,7 @@ h4{font-size:18px;font-weight:600;}
     </div>
   </div>
 
-  <!-- ====== SERVICE 02 — HEARING TEST ====== -->
+  <!-- ====== SERVICE 02 — HEARING TEST (PURE TONE AUDIOMETRY) ====== -->
   <div class="service-detail cream">
     <div class="container">
       <div class="service-detail-grid reverse">
@@ -1600,14 +1743,19 @@ h4{font-size:18px;font-weight:600;}
         </div>
         <div class="service-detail-content">
           <span class="service-num">Service 02</span>
-          <h2>Hearing Test</h2>
-          <p class="lede-text">A complete hearing assessment conducted by a trained hearing healthcare professional using gold-standard pure-tone audiometry.</p>
-          <p class="body-text">Our hearing healthcare professional will explain the results to you so you can better understand your hearing health. You'll leave with a printed report you can share with your GP, ENT specialist, or insurer.</p>
+          <h2>Hearing Test <span style="font-weight:500;color:var(--gray-500);font-size:.7em;">(Pure Tone Audiometry)</span></h2>
+          <p class="lede-text">A complete hearing assessment conducted by a trained hearing healthcare professional using gold-standard pure-tone audiometry — the international clinical reference for hearing evaluation.</p>
+          <p class="body-text">You'll listen to a series of soft tones across multiple frequencies in a sound-treated room. The audiologist then walks you through your audiogram in plain language, so you understand exactly where your hearing stands. A printed clinical report is included.</p>
+          <div class="price-tag">
+            <span class="label">Hearing Test &amp; Consultation</span>
+            <span class="value">S$100</span>
+            <span class="extra">· 45 min · with detailed audiogram explanation</span>
+          </div>
           <ul class="feature-list">
             <li>Conducted in a sound-treated diagnostic room</li>
             <li>Pure-tone audiometry — the audiological gold standard</li>
-            <li>Full results discussion at the end of the appointment</li>
-            <li>Printed clinical report included</li>
+            <li>Detailed audiogram explanation in plain language</li>
+            <li>Printed clinical report you can share with your GP or insurer</li>
           </ul>
           <div class="cta-row">
             <a href="#" class="btn btn-primary" data-link="contact">Book a Hearing Test</a>
@@ -1618,32 +1766,37 @@ h4{font-size:18px;font-weight:600;}
     </div>
   </div>
 
-  <!-- ====== SERVICE 03 — HEARING ASSESSMENT, AUDIOMETRY TEST ====== -->
+  <!-- ====== SERVICE 03 — HEARING AID EVALUATION ====== -->
   <div class="service-detail">
     <div class="container">
       <div class="service-detail-grid">
         <div class="service-visual v3">
           <svg class="ico-bg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="14" y="20" width="36" height="28" rx="4"/>
-            <path d="M22 28h20M22 34h20M22 40h12"/>
-            <circle cx="32" cy="14" r="4"/>
+            <path d="M22 18c0-6 4-10 10-10s10 4 10 10v8c0 4-3 6-3 10 0 4 3 6 3 10 0 5-4 8-9 8h-2"/>
+            <circle cx="32" cy="32" r="4"/>
+            <path d="M44 30c2 0 4-2 4-4s-2-4-4-4"/>
           </svg>
-          <div class="image-caption">Comprehensive diagnostic assessment</div>
+          <div class="image-caption">Hearing aid evaluation · The Adelphi</div>
         </div>
         <div class="service-detail-content">
           <span class="service-num">Service 03</span>
-          <h2>Hearing Assessment, Audiometry Test</h2>
-          <p class="lede-text">An in-depth diagnostic evaluation that goes beyond the standard hearing test — for complex cases, pre-fitting evaluation, or comprehensive baseline assessment.</p>
-          <p class="body-text">Combining pure-tone audiometry with speech discrimination testing and middle-ear function (tympanometry), this assessment provides a complete picture of your hearing across multiple clinical dimensions.</p>
+          <span class="priority-pill">Priority Service</span>
+          <h2>Hearing Aid Evaluation</h2>
+          <p class="lede-text">A pre-fitting consultation to identify the hearing aid best suited to your hearing profile, listening environments, and lifestyle — drawing from our trusted partner brands <strong>Signia, ReSound GN, and Phonak</strong>.</p>
+          <p class="body-text">We review your audiogram, discuss the situations where you struggle most to hear, and walk through the technology levels available. You leave with a clear, no-pressure recommendation. The evaluation fee is fully refundable when hearing aids are subsequently purchased within 30 days.</p>
+          <div class="price-tag">
+            <span class="label">Hearing Aid Evaluation</span>
+            <span class="value">S$100</span>
+            <span class="extra">· 1.5 hr · refundable on purchase within 30 days</span>
+          </div>
           <ul class="feature-list">
-            <li>Pure-tone audiometry across full frequency range</li>
-            <li>Speech discrimination testing</li>
-            <li>Tympanometry — middle-ear function evaluation</li>
-            <li>Otoscopy with high-resolution camera</li>
-            <li>Detailed clinical report</li>
+            <li>Lifestyle and listening environment review</li>
+            <li>Discussion of suitable Signia / ReSound GN / Phonak options</li>
+            <li>Real Ear Measurement (REM) verification on fitting</li>
+            <li>Aural rehabilitation and follow-up support included</li>
           </ul>
           <div class="cta-row">
-            <a href="#" class="btn btn-primary" data-link="contact">Book an Assessment</a>
+            <a href="#" class="btn btn-primary" data-link="contact">Book an Evaluation</a>
             <a href="#" class="btn btn-secondary" data-link="pricing">View Pricing</a>
           </div>
         </div>
@@ -1651,33 +1804,36 @@ h4{font-size:18px;font-weight:600;}
     </div>
   </div>
 
-  <!-- ====== SERVICE 04 — TINNITUS MANAGEMENT ====== -->
+  <!-- ====== SERVICE 04 — HEARING AID REPROGRAMMING ====== -->
   <div class="service-detail cream">
     <div class="container">
       <div class="service-detail-grid reverse">
         <div class="service-visual v4">
           <svg class="ico-bg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="32" cy="32" r="6"/>
-            <circle cx="32" cy="32" r="14" opacity=".7"/>
-            <circle cx="32" cy="32" r="22" opacity=".4"/>
-            <circle cx="32" cy="32" r="30" opacity=".2"/>
+            <circle cx="32" cy="32" r="22"/>
+            <path d="M32 18v14l8 6"/>
+            <path d="M14 32a18 18 0 0 1 4-12M50 32a18 18 0 0 1-4 12"/>
           </svg>
-          <div class="image-caption">Tinnitus consultation room</div>
+          <div class="image-caption">Hearing aid reprogramming station</div>
         </div>
         <div class="service-detail-content">
           <span class="service-num">Service 04</span>
-          <h2>Tinnitus Management</h2>
-          <p class="lede-text">Tinnitus — the perception of ringing or other sounds in the ears in the absence of external sound — commonly occurs alongside hearing loss. Type and loudness vary with each individual.</p>
-          <p class="body-text">While there is no treatment to eliminate tinnitus sounds entirely, it does not have to dominate your life. Our audiologist is trained in tinnitus management and works with you to develop a strategy tailored to your experience.</p>
+          <h2>Hearing Aid Reprogramming</h2>
+          <p class="lede-text">Reprogramming, fine-tuning, and clinical adjustment for hearing aids you've purchased elsewhere — supports devices from <strong>Signia, Phonak, Starkey, and ReSound</strong>.</p>
+          <p class="body-text">Whether your current hearing aids no longer match your hearing profile, you've moved to Singapore from another provider, or you simply want a second clinical opinion on your settings, our audiologist will reprogram your devices to your current audiogram and verify the result with Real Ear Measurement.</p>
+          <div class="price-tag">
+            <span class="label">Hearing Aid Reprogramming</span>
+            <span class="value">S$300</span>
+            <span class="extra">· 1 hr · includes Real Ear Measurement verification</span>
+          </div>
           <ul class="feature-list">
-            <li>Hearing aids with tinnitus masking features</li>
-            <li>Tinnitus retraining therapy (TRT)</li>
-            <li>Sound therapy and acoustic enrichment</li>
-            <li>Mindfulness-based approaches</li>
-            <li>Cognitive behaviour therapy (CBT) techniques</li>
+            <li>Compatible with Signia, Phonak, Starkey, and ReSound devices</li>
+            <li>Reprogramming based on your current hearing assessment</li>
+            <li>Real Ear Measurement verification standard</li>
+            <li>Post-programming fine-tuning included</li>
           </ul>
           <div class="cta-row">
-            <a href="#" class="btn btn-primary" data-link="contact">Book a Consultation</a>
+            <a href="#" class="btn btn-primary" data-link="contact">Book Reprogramming</a>
             <a href="#" class="btn btn-secondary">Speak to Our Team</a>
           </div>
         </div>
@@ -1685,7 +1841,7 @@ h4{font-size:18px;font-weight:600;}
     </div>
   </div>
 
-  <!-- ====== SERVICE 05 — EARWAX REMOVAL SINGAPORE ====== -->
+  <!-- ====== SERVICE 05 — PROFESSIONAL EARWAX REMOVAL ====== -->
   <div class="service-detail">
     <div class="container">
       <div class="service-detail-grid">
@@ -1701,11 +1857,11 @@ h4{font-size:18px;font-weight:600;}
         <div class="service-detail-content">
           <span class="service-num">Service 05</span>
           <span class="priority-pill">Priority Service</span>
-          <h2>Earwax Removal Singapore</h2>
+          <h2>Professional Earwax Removal</h2>
           <p class="lede-text">Excessive earwax build-up can lead to discomfort, blockage, and reduced hearing. We provide a safe, non-invasive, fast and effective procedure under direct otoscopic visualisation.</p>
           <p class="body-text">The clinician examines your ear with a high-resolution otoscope, removes the excess wax using a safe irrigation technique, and reviews the outcome with you before you leave. Most cases are resolved in a single visit.</p>
           <div class="price-tag">
-            <span class="label">Earwax Removal</span>
+            <span class="label">Professional Earwax Removal</span>
             <span class="value">S$100</span>
             <span class="extra">· 20 min · includes S$25 otoscopy &amp; consultation</span>
           </div>
@@ -1725,27 +1881,93 @@ h4{font-size:18px;font-weight:600;}
     </div>
   </div>
 
-  <!-- ====== PROCESS ====== -->
+  <!-- ====== BOOKING MODULE ====== -->
   <div class="section cream">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Book online</div>
+        <h2>Book a professional service</h2>
+        <p class="lede">Select your service below to schedule your visit at The Adelphi.</p>
+      </div>
+      <div class="booking-module">
+        <div class="booking-header">Select services</div>
+        <div class="booking-grid">
+          <div class="booking-services">
+            <div class="booking-section-label">General</div>
+            <label class="booking-service">
+              <input type="checkbox">
+              <div class="booking-service-info">
+                <div class="booking-service-name">Hearing Test &amp; Consultation (Pure Tone Audiometry, with detailed explanation of Audiogram)</div>
+                <div class="booking-service-meta">45 mins · $100</div>
+              </div>
+            </label>
+            <label class="booking-service">
+              <input type="checkbox">
+              <div class="booking-service-info">
+                <div class="booking-service-name">Hearing Aids Evaluation (refundable if hearing aids are purchased within 30 days of evaluation)</div>
+                <div class="booking-service-meta">1 hour, 30 mins · $100</div>
+              </div>
+            </label>
+            <label class="booking-service">
+              <input type="checkbox">
+              <div class="booking-service-info">
+                <div class="booking-service-name">Earwax Removal by irrigation (includes $25 Otoscopy &amp; Consultation Fee)</div>
+                <div class="booking-service-meta">20 mins · $100</div>
+              </div>
+            </label>
+            <label class="booking-service">
+              <input type="checkbox">
+              <div class="booking-service-info">
+                <div class="booking-service-name">Ear Impressions — Cost per Ear (for Custom IEMs, Custom Earplugs &amp; Ear Moulds)</div>
+                <div class="booking-service-meta">30 mins · $50</div>
+              </div>
+            </label>
+            <label class="booking-service">
+              <input type="checkbox">
+              <div class="booking-service-info">
+                <div class="booking-service-name">Hearing Aids Reprogramming (Signia, Phonak, Starkey &amp; ReSound devices purchased from other parties)</div>
+                <div class="booking-service-meta">1 hour · $300</div>
+              </div>
+            </label>
+          </div>
+          <div class="booking-location">
+            <div class="booking-location-card">
+              <div class="pin-row">
+                <svg class="pin-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div>
+                  <h4>The Hearing Room</h4>
+                  <div class="addr">1 Coleman Street, #03-21<br>The Adelphi, Singapore 179803<br>Singapore</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="booking-continue">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== PROCESS ====== -->
+  <div class="section">
     <div class="container">
       <div class="section-head">
         <div class="eyebrow">What to expect</div>
         <h2>Your first visit, in four steps</h2>
       </div>
       <div class="signs-grid" style="grid-template-columns:repeat(4,1fr);">
-        <div class="sign-row" style="background:var(--white);">
+        <div class="sign-row" style="background:var(--cream);">
           <div class="num">1</div>
           <div><h4>Friendly intake</h4><p>A short conversation to understand what brought you in.</p></div>
         </div>
-        <div class="sign-row" style="background:var(--white);">
+        <div class="sign-row" style="background:var(--cream);">
           <div class="num">2</div>
           <div><h4>Otoscopy</h4><p>We examine your ears with a high-resolution camera.</p></div>
         </div>
-        <div class="sign-row" style="background:var(--white);">
+        <div class="sign-row" style="background:var(--cream);">
           <div class="num">3</div>
           <div><h4>Diagnostic test</h4><p>Audiometry in a sound-treated room. Approximately 30 mins.</p></div>
         </div>
-        <div class="sign-row" style="background:var(--white);">
+        <div class="sign-row" style="background:var(--cream);">
           <div class="num">4</div>
           <div><h4>Clear explanation</h4><p>We discuss results, next steps, and provide a printed report.</p></div>
         </div>
@@ -1779,8 +2001,8 @@ h4{font-size:18px;font-weight:600;}
   <div class="page-hero">
     <div class="container">
       <div class="breadcrumb"><a href="#" data-link="home">Home</a> &nbsp;/&nbsp; About</div>
-      <h1>Independent. Clinical. Long-term.</h1>
-      <p class="lede">An independent Singapore hearing clinic led by qualified audiologists, with a focus on clinical care, clear explanation, and lifetime support.</p>
+      <h1>Clinical. Considered. Long-term.</h1>
+      <p class="lede">A Singapore hearing clinic led by qualified audiologists, with a focus on clinical care, clear explanation, and lifetime support.</p>
     </div>
   </div>
 
@@ -1791,8 +2013,8 @@ h4{font-size:18px;font-weight:600;}
         <div class="story-content">
           <div class="eyebrow">Who we are</div>
           <h2>Hearing care, the way it should be</h2>
-          <p class="lede">The Hearing Room Singapore is led by a dedicated team of qualified hearing care professionals and audiologists with extensive clinical experience.</p>
-          <p style="margin-top:16px;color:var(--charcoal-soft);">Our mission is to help individuals with hearing loss rediscover the joy of hearing and enjoy a better quality of life through professionally fitted hearing aids and exceptional, personalised long-term hearing care. As an independent clinic, we work with three trusted partner brands — Signia, ReSound GN, and Phonak — selected for their technology, performance, and ongoing support.</p>
+          <p class="lede">The Hearing Room is a Singapore hearing clinic at The Adelphi, led by a dedicated team of qualified audiologists and hearing care professionals with extensive clinical experience.</p>
+          <p style="margin-top:16px;color:var(--charcoal-soft);">From comprehensive hearing assessments and earwax removal to professionally fitted hearing aids from Signia, ReSound GN, and Phonak — every service is delivered with the same commitment to clinical precision, plain-language explanation, and lifetime support.</p>
           <div class="story-quote">
             "We take time to listen to your concerns, explain your hearing condition clearly, and guide you at a comfortable pace."
             <span class="who">— Kenny Tan, Senior Audiologist</span>
@@ -1802,8 +2024,45 @@ h4{font-size:18px;font-weight:600;}
     </div>
   </div>
 
-  <!-- Team -->
+  <!-- Story · Vision · Mission pillars -->
   <div class="section cream">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">What drives us</div>
+        <h2>Our story, vision &amp; mission</h2>
+        <p class="lede">The principles that have shaped The Hearing Room from day one — and that guide every patient appointment.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <span class="pillar-num">01</span>
+          <div class="pillar-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h3>Our Story</h3>
+          <p>The Hearing Room was established to give Singapore patients access to thorough, unhurried hearing care from qualified audiologists — without the sales pressure that typically accompanies hearing aid retail. Working with three trusted partner brands and earning more than 438 five-star Google reviews, we've built a practice on careful explanation, evidence-based protocols, and patients who return year after year.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-num">02</span>
+          <div class="pillar-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>Our Vision</h3>
+          <p>To be the hearing clinic Singapore patients trust most for clinical excellence, considered recommendations, and lasting outcomes — known for helping people reconnect with the conversations, laughter, and everyday sounds that matter to them.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-num">03</span>
+          <div class="pillar-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3>Our Mission</h3>
+          <p>To help individuals with hearing loss rediscover the joy of hearing and enjoy a better quality of life through professionally fitted hearing aids, gentle earwax management, and exceptional personalised long-term hearing care — delivered with clinical precision and genuine attention at every appointment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team -->
+  <div class="section">
     <div class="container">
       <div class="section-head">
         <div class="eyebrow">Meet the team</div>
@@ -1843,7 +2102,7 @@ h4{font-size:18px;font-weight:600;}
   </div>
 
   <!-- Clinic -->
-  <div class="section">
+  <div class="section cream">
     <div class="container">
       <div class="story-grid">
         <div class="story-content">
@@ -1888,27 +2147,25 @@ h4{font-size:18px;font-weight:600;}
     <div class="container">
       <div class="breadcrumb"><a href="#" data-link="home">Home</a> &nbsp;/&nbsp; Hearing Loss Info</div>
       <h1>Understanding hearing loss</h1>
-      <p class="lede">Plain-English answers to the questions our patients (and their adult children) ask most. No jargon. No selling.</p>
+      <p class="lede">Plain-language information on the signs, types, and clinical implications of hearing loss — for patients and the family members who care for them.</p>
     </div>
   </div>
 
-  <!-- Signs -->
+  <!-- Common reasons patients walk in -->
   <div class="section">
     <div class="container">
       <div class="section-head">
-        <div class="eyebrow">Signs to look for</div>
-        <h2>Eight everyday signs of hearing loss</h2>
-        <p class="lede">If three or more of these sound familiar — for you, or for someone you care for — it's worth a 30-minute hearing assessment.</p>
+        <div class="eyebrow">Why patients visit</div>
+        <h2>Six common reasons patients walk in</h2>
+        <p class="lede">Drawn from real reasons our patients have shared in their reviews — these are the most frequent presentations we see at the clinic.</p>
       </div>
       <div class="signs-grid">
-        <div class="sign-row"><div class="num">1</div><div><h4>Turning the TV up</h4><p>Family members complain it's too loud, but you say it sounds fine.</p></div></div>
-        <div class="sign-row"><div class="num">2</div><div><h4>"Sorry, what?"</h4><p>You ask people to repeat themselves often, especially in groups.</p></div></div>
-        <div class="sign-row"><div class="num">3</div><div><h4>Restaurants are exhausting</h4><p>Background noise makes it hard to follow conversations.</p></div></div>
-        <div class="sign-row"><div class="num">4</div><div><h4>Phone calls are harder</h4><p>You miss words, especially on speakerphone or with unfamiliar voices.</p></div></div>
-        <div class="sign-row"><div class="num">5</div><div><h4>Ringing in your ears</h4><p>Persistent buzzing or ringing — especially in quiet rooms.</p></div></div>
-        <div class="sign-row"><div class="num">6</div><div><h4>Mumbling everywhere</h4><p>It feels like everyone around you has started to mumble.</p></div></div>
-        <div class="sign-row"><div class="num">7</div><div><h4>Avoiding social events</h4><p>You skip dinners or gatherings because following the conversation feels too hard.</p></div></div>
-        <div class="sign-row"><div class="num">8</div><div><h4>Feeling tired after talking</h4><p>"Listening fatigue" — your brain is working overtime to fill in the gaps.</p></div></div>
+        <div class="sign-row"><div class="num">1</div><div><h4>A blocked or muffled ear</h4><p>Often sudden, sometimes after using cotton buds. Usually resolved in a single 20-minute earwax removal appointment.</p></div></div>
+        <div class="sign-row"><div class="num">2</div><div><h4>Hearing has dropped in one ear</h4><p>Asymmetric hearing change is a common presenting symptom — frequently caused by wax impaction, occasionally by something requiring further investigation.</p></div></div>
+        <div class="sign-row"><div class="num">3</div><div><h4>Wanting a professional check</h4><p>You suspect your hearing may have changed but aren't sure. A diagnostic hearing test gives you a clear, printed answer.</p></div></div>
+        <div class="sign-row"><div class="num">4</div><div><h4>Considering hearing aids</h4><p>You've been thinking about it but want to understand the options before committing. The Hearing Aids Evaluation is refundable on purchase.</p></div></div>
+        <div class="sign-row"><div class="num">5</div><div><h4>Persistent ringing or buzzing</h4><p>Tinnitus that won't quiet down — particularly noticeable in quiet rooms. Tinnitus management strategies can reduce its impact.</p></div></div>
+        <div class="sign-row"><div class="num">6</div><div><h4>Aftercare for existing devices</h4><p>Reprogramming, fine-tuning, or troubleshooting for hearing aids purchased elsewhere — supports Signia, Phonak, Starkey, and ReSound.</p></div></div>
       </div>
     </div>
   </div>
@@ -1986,24 +2243,89 @@ h4{font-size:18px;font-weight:600;}
     </div>
   </div>
 
-  <!-- Caregiver block -->
+  <!-- For caregivers -->
   <div class="section caregiver">
     <div class="container">
       <div class="caregiver-grid">
         <div>
           <div class="eyebrow on-dark">For caregivers</div>
-          <h2>Your parent isn't being stubborn — they probably can't hear you.</h2>
+          <h2>Your parent isn't being stubborn. They probably <em>can't hear you.</em></h2>
           <p class="lede">Many seniors don't recognise how much they're missing. Bringing a parent or loved one in for an unhurried hearing assessment is one of the most impactful steps you can take for their long-term cognitive and social health.</p>
           <div class="caregiver-cta">
-            <a href="#" class="btn btn-primary">Get our Caregiver's Guide</a>
-            <a href="#" class="btn btn-secondary on-dark">Speak to an audiologist</a>
+            <a href="#" class="btn btn-primary" data-link="contact">Book Your Premium Hearing Test</a>
           </div>
         </div>
         <div class="caregiver-signs">
-          <div class="sign-card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Don't argue about the volume</h4><p>It's not stubbornness — their brain is genuinely missing the signal.</p></div></div>
-          <div class="sign-card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Frame it as cognitive health</h4><p>Many seniors who refuse "hearing aids" will agree to a "dementia screening."</p></div></div>
-          <div class="sign-card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Come with them</h4><p>Two pairs of ears at the appointment — easier for them to absorb the explanation.</p></div></div>
+          <div class="sign-card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Don't argue about the volume</h4><p>It's not stubbornness — their brain is genuinely missing the signal.</p></div></div>
+          <div class="sign-card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Take time to decide</h4><p>The Hearing Aids Evaluation fee is refundable on purchase within 30 days, so you can compare options before committing.</p></div></div>
+          <div class="sign-card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Frame it as cognitive health</h4><p>Many seniors who refuse "hearing aids" will agree to a "dementia screening."</p></div></div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== BOOKING MODULE ====== -->
+  <div class="section cream">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Book online</div>
+        <h2>Book a professional service</h2>
+        <p class="lede">Select your service below to schedule your visit at The Adelphi.</p>
+      </div>
+      <div class="booking-module">
+        <div class="booking-header">Select services</div>
+        <div class="booking-grid">
+          <div class="booking-services">
+            <div class="booking-section-label">General</div>
+            <label class="booking-service">
+              <input type="checkbox">
+              <div class="booking-service-info">
+                <div class="booking-service-name">Hearing Test &amp; Consultation (Pure Tone Audiometry, with detailed explanation of Audiogram)</div>
+                <div class="booking-service-meta">45 mins · $100</div>
+              </div>
+            </label>
+            <label class="booking-service">
+              <input type="checkbox">
+              <div class="booking-service-info">
+                <div class="booking-service-name">Hearing Aids Evaluation (refundable if hearing aids are purchased within 30 days of evaluation)</div>
+                <div class="booking-service-meta">1 hour, 30 mins · $100</div>
+              </div>
+            </label>
+            <label class="booking-service">
+              <input type="checkbox">
+              <div class="booking-service-info">
+                <div class="booking-service-name">Earwax Removal by irrigation (includes $25 Otoscopy &amp; Consultation Fee)</div>
+                <div class="booking-service-meta">20 mins · $100</div>
+              </div>
+            </label>
+            <label class="booking-service">
+              <input type="checkbox">
+              <div class="booking-service-info">
+                <div class="booking-service-name">Ear Impressions — Cost per Ear (for Custom IEMs, Custom Earplugs &amp; Ear Moulds)</div>
+                <div class="booking-service-meta">30 mins · $50</div>
+              </div>
+            </label>
+            <label class="booking-service">
+              <input type="checkbox">
+              <div class="booking-service-info">
+                <div class="booking-service-name">Hearing Aids Reprogramming (Signia, Phonak, Starkey &amp; ReSound devices purchased from other parties)</div>
+                <div class="booking-service-meta">1 hour · $300</div>
+              </div>
+            </label>
+          </div>
+          <div class="booking-location">
+            <div class="booking-location-card">
+              <div class="pin-row">
+                <svg class="pin-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div>
+                  <h4>The Hearing Room</h4>
+                  <div class="addr">1 Coleman Street, #03-21<br>The Adelphi, Singapore 179803<br>Singapore</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="booking-continue">Continue</button>
       </div>
     </div>
   </div>
@@ -2149,7 +2471,7 @@ h4{font-size:18px;font-weight:600;}
           </div>
           <div class="form-row">
             <label>Tell us briefly what's going on</label>
-            <textarea placeholder="e.g., 'My father has been turning the TV up — I'd like to bring him in for a hearing assessment.'"></textarea>
+            <textarea placeholder="e.g., 'My right ear has felt blocked for a few days — I'd like to come in for a check.'"></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Send enquiry</button>
           <p class="privacy">By submitting, you agree to be contacted by The Hearing Room. We never share your details.</p>
@@ -2195,138 +2517,135 @@ h4{font-size:18px;font-weight:600;}
   <div class="page-hero">
     <div class="container">
       <div class="breadcrumb"><a href="#" data-link="home">Home</a> &nbsp;/&nbsp; Pricing</div>
-      <h1>Transparent pricing, no surprises</h1>
-      <p class="lede">Honest fees, published openly. We charge for hearing tests so the test itself can be diagnostic — not a sales pitch for hearing aids.</p>
+      <h1>Transparent published pricing</h1>
+      <p class="lede">Clear, published fees across our hearing assessments, earwax removal, and hearing aid services.</p>
+      <div style="margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="#" class="btn btn-primary" download>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Price List (PDF)
+        </a>
+        <a href="#" class="btn btn-secondary" data-link="contact">Speak to Our Team</a>
+      </div>
     </div>
   </div>
 
-  <!-- Professional services pricing -->
+  <!-- Official Price List -->
   <div class="section">
     <div class="container">
       <div class="section-head">
-        <div class="eyebrow">Professional services</div>
-        <h2>Transparent service fees</h2>
-        <p class="lede">Published fees for our most-booked clinical services. All assessments include a fully explained report you can share with your GP or insurer.</p>
+        <div class="eyebrow">Official price list</div>
+        <h2>Pricelist (Nett SGD)</h2>
+        <p class="lede">All fees published openly. Hearing aid devices are quoted individually at fitting based on the model and technology level selected.</p>
       </div>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <div class="tier-name">Hearing Aids Evaluation</div>
-          <div class="tier-desc">Pre-fitting consultation and assessment.</div>
-          <div class="price-amount"><span class="currency">S$</span><span class="number">100</span></div>
-          <ul class="price-includes">
-            <li>1 hour 30 minute appointment</li>
-            <li>Refundable if hearing aids are purchased within 30 days</li>
-            <li>Includes lifestyle and listening environment review</li>
-            <li>Discussion of suitable Signia / ReSound GN / Phonak options</li>
-          </ul>
-          <a href="#" class="btn btn-secondary">Book Evaluation</a>
-        </div>
-        <div class="price-card featured">
-          <div class="tier-name">Earwax Removal</div>
-          <div class="tier-desc">Safe, non-invasive earwax removal.</div>
-          <div class="price-amount"><span class="currency">S$</span><span class="number">100</span></div>
-          <ul class="price-includes">
-            <li>20-minute appointment</li>
-            <li>Includes S$25 otoscopy &amp; consultation fee</li>
-            <li>Safe, non-invasive irrigation technique</li>
-            <li>Same-day appointments often available</li>
-          </ul>
-          <a href="#" class="btn btn-primary">Book Online</a>
-        </div>
-        <div class="price-card">
-          <div class="tier-name">Hearing Aids Reprogramming</div>
-          <div class="tier-desc">For devices purchased elsewhere.</div>
-          <div class="price-amount"><span class="currency">S$</span><span class="number">300</span></div>
-          <ul class="price-includes">
-            <li>1 hour appointment</li>
-            <li>Compatible: Signia, Phonak, Starkey, ReSound</li>
-            <li>Real Ear Measurement verification</li>
-            <li>Post-programming fine-tuning included</li>
-          </ul>
-          <a href="#" class="btn btn-secondary">Book Service</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Specialty pricing -->
-  <div class="section cream">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">Specialty services</div>
-        <h2>Custom impressions &amp; verification</h2>
-      </div>
-      <div class="pricing-grid" style="grid-template-columns:1fr 1fr;max-width:780px;margin:0 auto;">
-        <div class="price-card">
-          <div class="tier-name">Custom Ear Impressions</div>
-          <div class="tier-desc">For IEMs, earplugs, and ear moulds.</div>
-          <div class="price-amount"><span class="currency">S$</span><span class="number">50</span><span class="duration">per ear</span></div>
-          <ul class="price-includes">
-            <li>30-minute appointment</li>
-            <li>Suitable for custom in-ear monitors (IEMs)</li>
-            <li>Custom-fit earplugs for noise protection</li>
-            <li>Hearing aid earmoulds</li>
-          </ul>
-          <a href="#" class="btn btn-secondary">Book Impression</a>
-        </div>
-        <div class="price-card featured">
-          <div class="tier-name">Real Ear Measurement</div>
-          <div class="tier-desc">Gold-standard hearing aid fitting verification.</div>
-          <div class="price-amount"><span class="currency" style="font-size:18px;">Included</span></div>
-          <ul class="price-includes">
-            <li>Standard with every hearing aid fitting</li>
-            <li>Verifies the device performs to prescription</li>
-            <li>Calibrated to your unique ear anatomy</li>
-            <li>The audiological gold standard worldwide</li>
-          </ul>
-          <a href="#" class="btn btn-primary">Learn More</a>
-        </div>
-      </div>
-    </div>
-  </div>
+      <div class="price-list">
 
-  <!-- Hearing aids -->
-  <div class="section">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">Hearing aids</div>
-        <h2>Three technology levels across three trusted brands</h2>
-        <p class="lede">Hearing aid pricing reflects the level of sound-processing technology. We discuss your hearing profile, lifestyle, and budget at your fitting consultation, and recommend the device most appropriate for your needs.</p>
+        <!-- Professional Services -->
+        <div class="price-list-cat">
+          <div class="price-list-cat-head">Professional Services</div>
+          <div class="price-list-row">
+            <span class="name">In-Clinic Consultation</span>
+            <span class="price">$25</span>
+          </div>
+          <div class="price-list-row">
+            <span class="name">In-Home Consultation</span>
+            <span class="price">$200</span>
+          </div>
+          <div class="price-list-row">
+            <span class="name">Pure Tone Audiometry (hearing test) with Report</span>
+            <span class="price">$100</span>
+          </div>
+          <div class="price-list-row">
+            <span class="name">Tympanometry (middle ear test)</span>
+            <span class="price">$50</span>
+          </div>
+          <div class="price-list-row">
+            <span class="name">Earwax Irrigation with Consultation (one or two ears)</span>
+            <span class="price">$100</span>
+          </div>
+          <div class="price-list-row">
+            <span class="name">Ear Impression (per ear)</span>
+            <span class="price">$50</span>
+          </div>
+          <div class="price-list-row">
+            <span class="name">Hearing Aid Evaluation</span>
+            <span class="price">$100</span>
+          </div>
+        </div>
+
+        <!-- Hearing Aids -->
+        <div class="price-list-cat">
+          <div class="price-list-cat-head">Hearing Aids</div>
+          <div class="price-list-row">
+            <span class="name">Hearing Aid Batteries (pack of 6)</span>
+            <span class="price">$6</span>
+          </div>
+          <div class="price-list-row">
+            <span class="name">Hearing Aid Maintenance Kit</span>
+            <span class="price">$20</span>
+          </div>
+          <div class="price-list-row">
+            <span class="name">Hearing Aid Domes / Sleeves (per pack)</span>
+            <span class="price">$20 to $40</span>
+          </div>
+          <div class="price-list-row">
+            <span class="name">Hearing Aid Wax Filters (per pack)</span>
+            <span class="price">$12 to $25</span>
+          </div>
+          <div class="price-list-row">
+            <span class="name">Out of Warranty Repair (per device)</span>
+            <span class="price">$400</span>
+          </div>
+
+          <div class="price-list-subhead">For hearing aids purchased elsewhere</div>
+
+          <div class="price-list-row">
+            <span class="name">Handling Fee (for repairs and reprogramming)</span>
+            <span class="price">$50</span>
+          </div>
+          <div class="price-list-row has-bullets">
+            <div class="top-line">
+              <span class="name">Hearing Aid Reprogramming (first) — includes:</span>
+              <span class="price">$150 to $300</span>
+            </div>
+            <ul class="bullets">
+              <li>Consultation</li>
+              <li>Pure Tone Audiometry</li>
+              <li>Handling Fee</li>
+              <li>Hearing Aid Fine-tuning</li>
+            </ul>
+          </div>
+          <div class="price-list-row">
+            <span class="name">Hearing Aid Programming (subsequent)</span>
+            <span class="price">$150</span>
+          </div>
+        </div>
+
+        <!-- Ear Plugs -->
+        <div class="price-list-cat">
+          <div class="price-list-cat-head">Ear Plugs</div>
+          <div class="price-list-row">
+            <span class="name">Custom Swim Plugs (per piece)</span>
+            <span class="price">$160</span>
+          </div>
+          <div class="price-list-row">
+            <span class="name">Custom Musician Plugs (per pair)</span>
+            <span class="price">$370</span>
+          </div>
+          <div class="price-list-row">
+            <span class="name">Custom Sleep Plugs (per pair)</span>
+            <span class="price">$300</span>
+          </div>
+        </div>
+
+        <div class="price-list-note">As of 1 January 2025 · All prices in SGD nett</div>
       </div>
-      <div class="aid-tier-grid">
-        <div class="aid-tier">
-          <span class="lvl">Essential</span>
-          <h4>Reliable everyday hearing</h4>
-          <div class="from"><strong>From S$2,500</strong> per ear</div>
-          <ul>
-            <li>Suitable for quieter listening environments</li>
-            <li>Noise reduction in quiet settings</li>
-            <li>Reliable for one-on-one conversation</li>
-            <li>Standard sound processing</li>
-          </ul>
-        </div>
-        <div class="aid-tier">
-          <span class="lvl mid">Advanced</span>
-          <h4>Active lifestyles, busier environments</h4>
-          <div class="from"><strong>From S$4,500</strong> per ear</div>
-          <ul>
-            <li>Multi-channel sound processing</li>
-            <li>Directional microphones</li>
-            <li>Bluetooth phone &amp; TV streaming</li>
-            <li>Smartphone app control</li>
-          </ul>
-        </div>
-        <div class="aid-tier">
-          <span class="lvl prem">Premium</span>
-          <h4>Best-in-class clarity in every situation</h4>
-          <div class="from"><strong>From S$7,500</strong> per ear</div>
-          <ul>
-            <li>AI-driven sound processing</li>
-            <li>Automatic environment detection</li>
-            <li>Restaurant &amp; group conversation modes</li>
-            <li>Rechargeable, full-day battery</li>
-          </ul>
-        </div>
+
+      <div style="text-align:center;margin-top:36px;">
+        <a href="#" class="btn btn-primary" download>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Price List (PDF)
+        </a>
       </div>
     </div>
   </div>
@@ -2340,8 +2659,74 @@ h4{font-size:18px;font-weight:600;}
         </div>
         <div>
           <h3>About our service fees</h3>
-          <p>Our service fees reflect the time, training, and clinical equipment involved in each appointment. The Hearing Aids Evaluation fee is fully refundable when hearing aids are subsequently purchased, and every hearing aid fitting includes Real Ear Measurement verification, ongoing follow-ups, and aural rehabilitation support.</p>
+          <p>Our service fees reflect the time, training, and clinical equipment involved in each appointment. Hearing aid devices themselves are quoted individually at fitting, based on the model and technology level you select from our partner brands (Signia, ReSound GN, Phonak). Every hearing aid fitting includes Real Ear Measurement verification, ongoing follow-ups, and aural rehabilitation support.</p>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== BOOKING MODULE ====== -->
+  <div class="section cream">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Book online</div>
+        <h2>Book a professional service</h2>
+        <p class="lede">Select your service below to schedule your visit at The Adelphi. All fees as published above.</p>
+      </div>
+      <div class="booking-module">
+        <div class="booking-header">Select services</div>
+        <div class="booking-grid">
+          <div class="booking-services">
+            <div class="booking-section-label">General</div>
+            <label class="booking-service">
+              <input type="checkbox">
+              <div class="booking-service-info">
+                <div class="booking-service-name">Hearing Test &amp; Consultation (Pure Tone Audiometry, with detailed explanation of Audiogram)</div>
+                <div class="booking-service-meta">45 mins · $100</div>
+              </div>
+            </label>
+            <label class="booking-service">
+              <input type="checkbox">
+              <div class="booking-service-info">
+                <div class="booking-service-name">Hearing Aids Evaluation (refundable if hearing aids are purchased within 30 days of evaluation)</div>
+                <div class="booking-service-meta">1 hour, 30 mins · $100</div>
+              </div>
+            </label>
+            <label class="booking-service">
+              <input type="checkbox">
+              <div class="booking-service-info">
+                <div class="booking-service-name">Earwax Removal by irrigation (includes $25 Otoscopy &amp; Consultation Fee)</div>
+                <div class="booking-service-meta">20 mins · $100</div>
+              </div>
+            </label>
+            <label class="booking-service">
+              <input type="checkbox">
+              <div class="booking-service-info">
+                <div class="booking-service-name">Ear Impressions — Cost per Ear (for Custom IEMs, Custom Earplugs &amp; Ear Moulds)</div>
+                <div class="booking-service-meta">30 mins · $50</div>
+              </div>
+            </label>
+            <label class="booking-service">
+              <input type="checkbox">
+              <div class="booking-service-info">
+                <div class="booking-service-name">Hearing Aids Reprogramming (Signia, Phonak, Starkey &amp; ReSound devices purchased from other parties)</div>
+                <div class="booking-service-meta">1 hour · $300</div>
+              </div>
+            </label>
+          </div>
+          <div class="booking-location">
+            <div class="booking-location-card">
+              <div class="pin-row">
+                <svg class="pin-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div>
+                  <h4>The Hearing Room</h4>
+                  <div class="addr">1 Coleman Street, #03-21<br>The Adelphi, Singapore 179803<br>Singapore</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="booking-continue">Continue</button>
       </div>
     </div>
   </div>
@@ -2383,7 +2768,7 @@ h4{font-size:18px;font-weight:600;}
             <span class="l2">real life solutions</span>
           </div>
         </div>
-        <p>An independent Singapore hearing clinic at The Adelphi, City Hall. Personalised hearing care for every stage of life.</p>
+        <p>A Singapore hearing clinic at The Adelphi, City Hall. Personalised hearing care for every stage of life.</p>
         <div class="footer-socials">
           <a href="#" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487 1.794.775 2.502.842 3.404.708.55-.082 1.704-.696 1.945-1.37.241-.674.241-1.252.169-1.371-.073-.118-.27-.19-.566-.336"/></svg></a>
           <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
